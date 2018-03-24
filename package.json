@@ -1,13 +1,19 @@
 {
-  "name": "wui",
+  "name": "wecui",
   "version": "1.0.0",
   "description": "a component library",
-  "author": "edgardong",
-  "private": true,
+  "author": "edgarhao",
+  "main": "lib/wecui.js",
+  "files": [
+    "lib",
+    "src",
+    "packages"
+  ],
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build:wui": "webpack --progress --hide-modules --config build/webpack.build.conf.js && rimraf examples/dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.build.min.js",
+    "build:wecui": "webpack --progress --hide-modules --config build/webpack.build.js && rimraf examples/dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.build.min.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",

@@ -3,6 +3,11 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const HOST = process.env.HOST
+const PORT = process.env.PORT && Number(process.env.PORT)
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -24,20 +29,23 @@ module.exports = {
   // entry: {
   //   app: './src/main.js'
   // },
+  // 文件的入口
   entry: {
     'vendor': ['vue', 'vue-router'],
-    'wui': './examples/src/index.js'
+    'wecui': './examples/src/index.js'
   },
   output: {
     // path: config.build.assetsRoot,
     path: path.join(__dirname, '../examples/dist'),
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: '/'
+    // publicPath: process.env.NODE_ENV === 'production'
+    //   ? config.build.assetsPublicPath
+    //   : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    // alias 别名
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -49,6 +57,7 @@ module.exports = {
   },
   module: {
     rules: [
+      ...utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true }),
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
@@ -97,5 +106,66 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  // 整合webpack.dev.conf.js中的devServer选项
+  // cheap-module-eval-source-map is faster for development
+  devtool: config.dev.devtool,
+
+  // these devServer options should be customized in /config/index.js
+  devServer: {
+    clientLogLevel: 'warning',
+    historyApiFallback: {
+      rewrites: [
+        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+      ],
+    },
+    hot: true,
+    contentBase: false, // since we use CopyWebpackPlugin.
+    compress: true,
+    host: HOST || config.dev.host,
+    port: PORT || config.dev.port,
+    open: config.dev.autoOpenBrowser,
+    overlay: config.dev.errorOverlay
+      ? { warnings: false, errors: true }
+      : false,
+    publicPath: config.dev.assetsPublicPath,
+    proxy: config.dev.proxyTable,
+    quiet: true, // necessary for FriendlyErrorsPlugin
+    watchOptions: {
+      poll: config.dev.poll,
+    }
+  },
+
+  // 整合webpack.dev.conf.js中的plugins选项 
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': require('../config/dev.env')
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+    new webpack.NoEmitOnErrorsPlugin(),
+    // https://github.com/ampedandwired/html-webpack-plugin
+
+    // change for components library
+    new HtmlWebpackPlugin({
+      chunks: ['vendor', 'wecui'],
+      template: 'examples/src/index.tpl',
+      filename: 'index.html',
+      inject: true
+    }),
+
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: 'index.html',
+    //   inject: true
+    // }),
+    // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.dev.assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
+  ]
 }
