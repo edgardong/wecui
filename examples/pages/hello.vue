@@ -1,5 +1,5 @@
 <template>
-    <div class="hello">
-        <w-hello message="my component library"></w-hello>
+    <div class="wec-hello">
+        <wec-hello message="my component library"></wec-hello>
     </div>
 </template>

@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router.config'
+import 'packages/wecui-css/src/index.css'
 
-import wui from '../../src/index.js'
+import {Hello} from '../../src/index.js'
+// import wecui from '../../src/index.js'
+
+// console.log(Hello)
+// console.log(wecui)
 
 // 完整引用
-Vue.use(wui)
+// Vue.use(wecui)
 // 独立引用
-const { Hello } = wui
 Vue.component(Hello.name, Hello)
 
 Vue.config.productionTip = false

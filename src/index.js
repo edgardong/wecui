@@ -11,6 +11,7 @@ const install = function (Vue, opt = {}) {
   // if (install.installed) return
 
   components.map(component => {
+    // console.log(component)
     Vue.component(component.name, component)
   })
 }
@@ -19,7 +20,11 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export default {
-  // install,
+// install()
+
+module.exports = {
+  install,
   Hello
 }
+
+module.exports.default = module.exports

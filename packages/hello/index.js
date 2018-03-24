@@ -1,8 +1,8 @@
-import Hello from './src/main';
+import WECHello from './src/main';
 
 /* istanbul ignore next */
-Hello.install = function(Vue) {
-  Vue.component(Hello.name, Hello);
-};
+// WECHello.install = function(Vue) {
+//   Vue.component(WECHello.name, WECHello);
+// };
 
-export default Hello;
+export default WECHello;

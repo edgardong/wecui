@@ -1,12 +1,12 @@
 <template>
-  <div class="w-hello">
-    hello {{ message }}
+  <div class="wec-hello">
+    <p class="wec-hello__message">{{ message }}</p> 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'w-hello',
+  name: 'wecHello',
   props: {
     message: String
   }
