@@ -48,7 +48,7 @@ module.exports = {
     // path: config.build.assetsRoot,
     path: path.join(__dirname, '../examples/dist'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: './'
     // publicPath: process.env.NODE_ENV === 'production'
     //   ? config.build.assetsPublicPath
     //   : config.dev.assetsPublicPath
@@ -175,7 +175,7 @@ module.exports = {
     // change for components library
     // PC端入口文件
     new HtmlWebpackPlugin({
-      chunks: ['vendor', 'wecui'],
+      chunks: ['manifest','vendor', 'wecui'],
       template: 'examples/src/index.tpl',
       filename: 'index.html',
       inject: true
@@ -183,7 +183,7 @@ module.exports = {
 
      // 移动端入口文件
      new HtmlWebpackPlugin({
-      chunks: ['vendor', 'wecui-mobile'],
+      chunks: ['manifest','vendor', 'wecui-mobile'],
       template: 'examples/src/index.tpl',
       filename: 'mobile.html',
       inject: true
