@@ -1,0 +1,21 @@
+{
+  "zh-CN": [
+    {
+      "name": "wecui 组件",
+      "showInMobile": true,
+      "groups": [
+        {
+          "groupName": "基础组件",
+          "list": [
+            {
+              "path": "/hello",
+              "title": "Hello",
+              "name":"hello",
+              "component":"hello"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

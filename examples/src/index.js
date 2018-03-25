@@ -1,30 +1,28 @@
 import Vue from 'vue'
 import App from './App'
-import router from './router.config'
+import VueRouter from 'vue-router'
 import isMobile from './is-mobile'
 import 'packages/wecui-css/src/index.css'
 import '../assets/docs.css'
-
-// import { Hello } from '../../src/index.js'
 import wecui from '../../src/index.js'
 
-// console.log(Hello)
-// console.log(wecui)
+import registerRoute from './router.config'
+import navConfig from './nav.config'
 
+const routesConfig = registerRoute(navConfig)
+
+console.log(routesConfig)
+
+const router = new VueRouter({
+  routes: routesConfig
+})
+
+Vue.use(VueRouter);
 // 完整引用
 Vue.use(wecui)
-// 独立引用
-// Vue.component(Hello.name, Hello)
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-// new Vue({
-//     el: '#app-container',
-//     router,
-//     components: { App },
-//     template: '<App/>'
-// })
 
 // 是否为生产环境
 const isProduction = process.env.NODE_ENV === 'production'
@@ -43,8 +41,10 @@ router.beforeEach((route, redirect, next) => {
   next()
 })
 
-
-new Vue({ // eslint-disable-line
-  render: h => h(App),
-  router
-}).$mount('#app-container');
+/* eslint-disable no-new */
+new Vue({
+    el: '#app-container',
+    router,
+    components: { App },
+    template: '<App/>'
+})

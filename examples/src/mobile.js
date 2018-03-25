@@ -7,16 +7,18 @@ import Hello from '../pages/hello.vue'
 
 import 'packages/wecui-css/src/index.css'
 
+import registerRoute from './router.config'
+import navConfig from './nav.config'
+
+const routesConfig = registerRoute(navConfig)
+
 Vue.use(wecui)
 Vue.use(VueRouter)
 
 const isProduction = process.env.NODE_ENV === 'production'
 const router = new VueRouter({
   base: isProduction ? '/wecui/' : __dirname,
-  routes: [{
-    path: '/component/hello',
-    component: Hello
-  }]
+  routes: routesConfig
 })
 router.beforeEach((route, redirect, next) => {
   if (route.path !== '/') {
