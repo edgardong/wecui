@@ -13,6 +13,15 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+// 定义辅助函数wrap，将<code>标签都加上名为'hljs'的class
+function wrap(render) {
+  return function () {
+    return render.apply(this, arguments)
+      .replace('<code v-pre class="', '<code class="hljs ')
+      .replace('<code>', '<code class="hljs">')
+  }
+}
+
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -32,7 +41,8 @@ module.exports = {
   // 文件的入口
   entry: {
     'vendor': ['vue', 'vue-router'],
-    'wecui': './examples/src/index.js'
+    'wecui': './examples/src/index.js', // PC端入口JS
+    'wecui-mobile': './examples/src/mobile.js'
   },
   output: {
     // path: config.build.assetsRoot,
@@ -68,6 +78,22 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.md$/,
+        loader: 'vue-markdown-loader',
+        options: {
+          // 阻止提取脚本和样式标签
+          preventExtract: true,
+          preprocess: function (MarkdownIt, source) {
+            // 为table标签加上名为'table'的class
+            MarkdownIt.renderer.rules.table_open = function () {
+              return '<table class="table">'
+            };
+            MarkdownIt.renderer.rules.fence = wrap(MarkdownIt.renderer.rules.fence);
+            return source;
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -147,10 +173,19 @@ module.exports = {
     // https://github.com/ampedandwired/html-webpack-plugin
 
     // change for components library
+    // PC端入口文件
     new HtmlWebpackPlugin({
       chunks: ['vendor', 'wecui'],
       template: 'examples/src/index.tpl',
       filename: 'index.html',
+      inject: true
+    }),
+
+     // 移动端入口文件
+     new HtmlWebpackPlugin({
+      chunks: ['vendor', 'wecui-mobile'],
+      template: 'examples/src/index.tpl',
+      filename: 'mobile.html',
       inject: true
     }),
 

@@ -5,10 +5,14 @@ import hello from '../pages/hello'  // 请自行去pages下面创建一个hello.
 Vue.use(Router)
 
 export default new Router({
-    routes: [
-        {
-            path: '/',
-            component: hello
-        }
-    ]
+  routes: [
+    {
+      path: '/',
+      component: hello
+    },
+    {
+      path: '/component/hello',
+      component: require('../docs/hello.md').default
+    }
+  ]
 })
