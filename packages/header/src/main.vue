@@ -13,7 +13,7 @@
   }
 </script>
 <style lang="stylus">
-@import '../../../src/style/var.css'
+@import '../../../src/style/var.styl'
 
 .wec-header
   position fixed
