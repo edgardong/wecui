@@ -1,1 +1,2 @@
-@import './hello.css'
+@import '../../../src/style/reset.css';
+@import './hello.css';
