@@ -2,7 +2,7 @@
   <div class="page-header">
     <div class="page-header__top">
       <h1 class="page-header__logo">
-        <a href="#">wecui.js</a>
+        <a href="#">WECUI</a>
       </h1>
       <ul class="page-header__navs">
         <li class="page-header__item">

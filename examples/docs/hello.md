@@ -1,5 +1,5 @@
 ## Hello
-**Hello 组件，Hello 组件，Hello 组件，Hello 组件**
+**Hello 组件**
 ### 基本用法
 ```html
 <template>
@@ -27,7 +27,7 @@ export default {
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| message  | 文本信息    | string   | — | — |
+| message  | 文本信息    | String   | — | — |
 ### Events
 | 事件名称      | 说明    | 回调参数      |
 |---------- |-------- |---------- |
