@@ -11,8 +11,6 @@ import navConfig from './nav.config'
 
 const routesConfig = registerRoute(navConfig)
 
-console.log(routesConfig)
-
 const router = new VueRouter({
   routes: routesConfig
 })

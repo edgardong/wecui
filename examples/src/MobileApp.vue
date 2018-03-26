@@ -1,7 +1,7 @@
 <template>
   <div class="mobile-container">
       <router-view></router-view>
-      <mobile-nav :group="navConfig['zh-CN'][0].groups[0]"></mobile-nav>
+      <mobile-nav :group="navConfig['zh-CN'][0].groups[0]" base="/component"></mobile-nav>
   </div>
 </template>
 <script>

@@ -11,12 +11,8 @@
     <div class="mobile-nav-group__list-wrapper" :class="{ 'mobile-nav-group__list-wrapper--open': isOpen }">
       <ul class="mobile-nav-group__list" :class="{ 'mobile-nav-group__list--open': isOpen }">
         <template v-for="navItem in group.list">
-          <li
-            class="mobile-nav-group__title"
-            v-if="!navItem.disabled">
-            <router-link
-              active-class="active"
-              :to="base + navItem.path">
+          <li class="mobile-nav-group__title" v-if="!navItem.disabled">
+            <router-link   active-class="active"  :to="base + navItem.path">
               <p>
                 {{ navItem.title }}
               </p>

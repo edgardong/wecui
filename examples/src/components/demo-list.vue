@@ -1,7 +1,7 @@
 <template>
   <div class="side-nav">
-    <h1 class="vui-title"></h1>
-    <h2 class="vui-desc">VUI 移动组件库</h2>
+    <h1 class="wecui-title"></h1>
+    <h2 class="wecui-desc">WECUI 移动组件库</h2>
     <div class="mobile-navs">
       <div v-for="(item, index) in data" :key="index">
         <div class="mobile-nav-item" v-if="item.showInMobile">
@@ -38,23 +38,23 @@ export default {
   position: relative;
   z-index: 1;
 
-  .vui-title,
-  .vui-desc {
+  .wecui-title,
+  .wecui-desc {
     text-align: center;
     font-weight: normal;
     user-select: none;
   }
 
-  .vui-title {
+  .wecui-title {
     padding-top: 40px;
     height: 0;
     overflow: hidden;
-    background: url(https://raw.githubusercontent.com/xuqiang521/vui/master/src/assets/logo.png) center center no-repeat;
+    background: url(https://raw.githubusercontent.com/xuqiang521/wecui/master/src/assets/logo.png) center center no-repeat;
     background-size: 40px 40px;
     margin-bottom: 10px;
   }
 
-  .vui-desc {
+  .wecui-desc {
     font-size: 14px;
     color: #666;
     margin-bottom: 50px;

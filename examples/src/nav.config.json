@@ -12,6 +12,12 @@
               "title": "Hello",
               "name":"hello",
               "component":"hello"
+            },
+            {
+              "path": "/header",
+              "title": "header",
+              "name":"header",
+              "component":"header"
             }
           ]
         }

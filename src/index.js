@@ -1,9 +1,11 @@
 // 引入公用组件
 import Hello from '../packages/hello'
+import Header from '../packages/header'
 
 // 定义公用组件
 const components = [
-  Hello
+  Hello,
+  Header
 ]
 
 // 提供plugins的install方法
@@ -24,7 +26,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 module.exports = {
   install,
-  Hello
+  Hello,
+  Header
 }
 
 module.exports.default = module.exports
