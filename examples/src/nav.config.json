@@ -6,6 +6,7 @@
       "groups": [
         {
           "groupName": "基础组件",
+          "isOpen":false,
           "list": [
             {
               "path": "/hello",
@@ -17,6 +18,24 @@
               "path": "/header",
               "title": "header",
               "name":"header",
+              "component":"header"
+            }
+          ]
+        },
+        {
+          "groupName": "表单组件",
+          "isOpen":false,
+          "list": [
+            {
+              "path": "/hello",
+              "title": "Hello1",
+              "name":"hello1",
+              "component":"hello"
+            },
+            {
+              "path": "/header",
+              "title": "header1",
+              "name":"header1",
               "component":"header"
             }
           ]

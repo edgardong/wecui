@@ -56,7 +56,7 @@ const registerRoute = (navConfig) => {
 
     route.push({
       path: '/',
-      redirect: '/component/hello'
+      redirect: '/component/index'
     })
   }
 
