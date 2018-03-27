@@ -67,6 +67,7 @@ export default {
       position: relative;
       background-color: #ffffff;
       user-select: none;
+      border-radius: 2px;
 
       @m open {
         color: #38f;
