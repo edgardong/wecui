@@ -1,22 +1,7 @@
 // import Vue from 'vue'
 // import Router from 'vue-router'
-// import hello from '../pages/hello'  // 请自行去pages下面创建一个hello.vue，以方便之后的测试
-
-// Vue.use(Router)
-
-// export default new Router({
-//   routes: [
-//     // {
-//     //   path: '/',
-//     //   component: hello
-//     // },
-//     {
-//       path: '/',
-//       component: require('../docs/hello.md').default
-//     }
-//   ]
-// })
-
+import hello from '../pages/hello'  // 请自行去pages下面创建一个hello.vue，以方便之后的测试
+import MobileNav from '../src/components/mobile-nav'
 import isMobile from './is-mobile'
 
 const registerRoute = (navConfig) => {
@@ -54,9 +39,10 @@ const registerRoute = (navConfig) => {
       component: component.default || component
     })
 
+    // 配置默认路由
     route.push({
       path: '/',
-      redirect: '/component/index'
+      component: isMobile ? MobileNav:hello
     })
   }
 

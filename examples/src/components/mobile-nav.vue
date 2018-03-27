@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-nav-group">
-    <div v-for="(group,index) in groups" :key="index" class="mobile-nav-group">
+    <div v-for="(group,index) in groups" :key="index" class="mobile-nav-group__item">
       <div class="mobile-nav-group__title mobile-nav-group__basetitle" :class="{ 'mobile-nav-group__title--open': group.isOpen }" @click="group.isOpen = !group.isOpen">
       {{group.groupName}}
       </div>
@@ -8,7 +8,7 @@
         <ul class="mobile-nav-group__list" :class="{ 'mobile-nav-group__list--open': group.isOpen }">
           <div v-for="(navItem,index) in group.list" :key="index">
             <li class="mobile-nav-group__title" v-if="!navItem.disabled">
-              <router-link   active-class="active"  :to="base + navItem.path"> <p> {{ navItem.title }} </p></router-link>
+              <div   active-class="active"  @click="showDemo(base + navItem.path)"> <p> {{ navItem.title }} </p></div>
             </li>
           </div>
         </ul>
@@ -33,6 +33,12 @@ export default {
     return {
       // isOpen: false
     };
+  },
+  methods: {
+    showDemo(path) {
+      // this.$root.show = false;
+      this.$router.push(path);
+    }
   }
 };
 </script>
@@ -42,11 +48,16 @@ export default {
   @b nav-group {
     border-radius: 2px;
     margin-bottom: 3px;
-    background-color: #fff;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    background-color: #eeeeee;
+
+    @e item {
+      background-color: #eeeeee;
+      padding: 15px 15px 0 15px;     
+    }
 
     @e basetitle {
       padding-left: 20px;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
     }
 
     @e title {
@@ -54,13 +65,14 @@ export default {
       color: #333;
       line-height: 56px;
       position: relative;
+      background-color: #ffffff;
       user-select: none;
 
       @m open {
         color: #38f;
       }
 
-      a {
+      div {
         color: #333;
         display: block;
         user-select: none;

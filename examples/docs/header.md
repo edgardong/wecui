@@ -1,24 +1,23 @@
-## Hello
-**Hello 组件**
+## Header
+**Header 组件**
 ### 基本用法
 ```html
 <template>
-  <div class="hello-page">
-    <wec-hello message="my component library" @click="handleClick"></wec-hello>
-    <p>{{ msg }}</p>
+  <div class="header-page">
+    <wec-header :title="my title" @more-click="handleClick"></wec-header>
   </div>
 </template>
 <script>
 export default {
-  name: 'hello',
+  name: 'heaer',
   data () {
     return {
       msg: ''
     }
   },
   methods: {
-    handleClick (msg) {
-      this.msg = msg
+    handleClick () {
+      alert('click a button');
     }
   }
 }
@@ -27,8 +26,11 @@ export default {
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| message  | 文本信息    | String   | — | — |
+| title  | 文本信息    | String   | — | — |
+|show-more|是否显示更多按钮|Boolean|--|--|
+|show-back|是否显示返回按钮|Boolean|--|--|
 ### Events
 | 事件名称      | 说明    | 回调参数      |
 |---------- |-------- |---------- |
-| click  | 点击操作    | — |
+| more-click  | 点击事件    | — |
+| back-click  | 点击事件    | — |
