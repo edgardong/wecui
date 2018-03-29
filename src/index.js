@@ -1,11 +1,13 @@
 // 引入公用组件
 import Hello from '../packages/hello'
 import Header from '../packages/header'
+import Button from '../packages/button'
 
 // 定义公用组件
 const components = [
   Hello,
-  Header
+  Header,
+  Button
 ]
 
 // 提供plugins的install方法
