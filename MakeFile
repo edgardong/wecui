@@ -1,0 +1,7 @@
+default:	help
+
+new:
+	node build/bin/new.js $(filter-out $@,$(MAKECMDGOALS))
+
+help:
+	@echo make new <component-name> [中文名] ---  创建新全局组件 生成对应文件  例如 'make new button '按钮'

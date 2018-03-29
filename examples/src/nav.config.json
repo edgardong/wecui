@@ -6,37 +6,41 @@
       "groups": [
         {
           "groupName": "基础组件",
-          "isOpen":false,
+          "isOpen": false,
           "list": [
             {
               "path": "/hello",
               "title": "Hello",
-              "name":"hello",
-              "component":"hello"
+              "name": "hello",
+              "component": "hello"
             },
             {
               "path": "/header",
               "title": "header",
-              "name":"header",
-              "component":"header"
+              "name": "header",
+              "component": "header"
+            },
+            {
+              "path": "/button",
+              "title": "Button 按钮"
             }
           ]
         },
         {
           "groupName": "表单组件",
-          "isOpen":false,
+          "isOpen": false,
           "list": [
             {
               "path": "/hello",
               "title": "Hello1",
-              "name":"hello1",
-              "component":"hello"
+              "name": "hello1",
+              "component": "hello"
             },
             {
               "path": "/header",
               "title": "header1",
-              "name":"header1",
-              "component":"header"
+              "name": "header1",
+              "component": "header"
             }
           ]
         }

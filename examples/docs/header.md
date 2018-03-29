@@ -2,26 +2,9 @@
 **Header 组件**
 ### 基本用法
 ```html
-<template>
-  <div class="header-page">
-    <wec-header :title="my title" @more-click="handleClick"></wec-header>
-  </div>
-</template>
-<script>
-export default {
-  name: 'heaer',
-  data () {
-    return {
-      msg: ''
-    }
-  },
-  methods: {
-    handleClick () {
-      alert('click a button');
-    }
-  }
-}
-</script>
+  <wec-header :title="my title" @more-click="handleClick"></wec-header>
+
+  <wec-header class="header4" @back-click="backClick" :show-back="true" :show-more="true" title="显示左右按钮"></wec-header>
 ```
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
