@@ -16,7 +16,7 @@
             },
             {
               "path": "/header",
-              "title": "header",
+              "title": "Header 导航栏",
               "name": "header",
               "component": "header"
             },
