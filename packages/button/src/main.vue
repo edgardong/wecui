@@ -1,6 +1,9 @@
 <template>
   <div class="wec-button">
-    <button class="button" :class="[type?'button-' + type:'', size? 'button-'+ size:'']"></button>
+    <button class="button" :class="[type?'button-' + type:'', size? 'button-'+ size:'']">
+      <!-- 用来显示按钮文字 -->
+      <span v-if="$slots.default"><slot></slot></span>
+    </button>
   </div>
 </template>
 <script>
@@ -21,7 +24,9 @@ export default {
       type: String,
       default: "primary",
       validator: function(value) {
-        return ["primary", "warn", "success", "error"].indexOf(value) !== -1;
+        return (
+          ["primary", "warn", "success", "error", "text"].indexOf(value) !== -1
+        );
       }
     }
   },

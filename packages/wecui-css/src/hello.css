@@ -1,8 +1,0 @@
-@b wec-hello {
-    color: #fff;
-    transform: scale(1);
-  
-    @e message {
-      background: #0067ED;
-    }
-  }

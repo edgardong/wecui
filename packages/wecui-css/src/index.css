@@ -1,7 +1,8 @@
 @import '../../../src/style/reset.css';
-@import './hello.css';
-
-html,body {
+@import './hello.scss';
+@import './button.scss';
+html,
+body {
     height: 100%;
     width: 100%;
 }
