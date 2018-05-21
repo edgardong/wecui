@@ -5,6 +5,7 @@ import wecui from 'src/index.js'
 import isMobile from './is-mobile.js'
 import Hello from '../pages/hello.vue'
 import 'src/assets/fonts/iconfont.css'
+import '../../src/style/reset.css'
 import 'packages/wecui-css/src/index.scss'
 
 import registerRoute from './router.config'
