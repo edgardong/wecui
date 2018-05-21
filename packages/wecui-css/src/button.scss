@@ -1,7 +1,6 @@
 @import './style/var.scss';
-$color-primary: #4caf50;
+// $color-primary: #4caf50;
 .wec-button {
-    @import "./style/var.scss";
     button {
         appearance: none;
         border-radius: 4px;
@@ -21,6 +20,6 @@ $color-primary: #4caf50;
     }
     .button-small {}
     .button-primary {
-        color: $color-primary;
+        color: $color-primary
     }
 }

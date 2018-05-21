@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import isMobile from './is-mobile'
-import 'packages/wecui-css/src/index.css'
+import 'packages/wecui-css/src/index.scss'
 import '../assets/docs.css'
 import wecui from '../../src/index.js'
 
