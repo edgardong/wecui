@@ -3,92 +3,86 @@
 @import './mixins/mixins';
 @import './mixins/button';
 @include b(button) {
-    display: inline-block;
-    line-height: 1;
-    white-space: nowrap;
-    cursor: pointer;
-    background: $--button-default-fill;
-    border: $--border-base;
-    border-color: $--button-default-border;
-    color: $--button-default-color;
-    -webkit-appearance: none;
-    text-align: center;
-    box-sizing: border-box;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: $--button-default-fill;
+  border: $--border-base;
+  border-color: $--button-default-border;
+  color: $--button-default-color;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: $--button-font-weight;
+  &:focus {
     outline: none;
-    margin: 0;
-    transition: .1s;
-    font-weight: $--button-font-weight;
-    &:focus {
-        outline: none;
-    }
-
-    @include when(plain) {
-        &:hover,
-        &:focus {
-          background: $--color-white;
-          border-color: $--color-primary;
-          color: $--color-primary;
-        }
-    
-        &:active {
-          background: $--color-white;
-          border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-          color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-          outline: none;
-        }      
-    }
-    @include m(primary) {
-        @include button-variant($--button-primary-color, $--button-primary-fill, $--button-primary-border);
-    }
-
-    @include m(success) {
-        @include button-variant($--button-success-color, $--button-success-fill, $--button-success-border);
-    }
-    @include m(warning) {
-        @include button-variant($--button-warning-color, $--button-warning-fill, $--button-warning-border);
-    }
-    @include m(danger) {
-        @include button-variant($--button-danger-color, $--button-danger-fill, $--button-danger-border);
-    }
-    @include m(info) {
-        @include button-variant($--button-info-color, $--button-info-fill, $--button-info-border);
-    }
-
-    @include m(error) {
-      @include button-variant($--button-error-color, $--button-error-fill, $--button-error-border);
   }
-    @include m(medium) {
-        @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
+  @include when(plain) {
+    &:hover,
+    &:focus {
+      background: $--color-white;
+      border-color: $--color-primary;
+      color: $--color-primary;
     }
-    @include m(small) {
-        @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+    &:active {
+      background: $--color-white;
+      border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      outline: none;
     }
-    @include m(mini) {
-        @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+  }
+  @include m(primary) {
+    @include button-variant($--button-primary-color, $--button-primary-fill, $--button-primary-border);
+  }
+  @include m(success) {
+    @include button-variant($--button-success-color, $--button-success-fill, $--button-success-border);
+  }
+  @include m(warning) {
+    @include button-variant($--button-warning-color, $--button-warning-fill, $--button-warning-border);
+  }
+  @include m(danger) {
+    @include button-variant($--button-danger-color, $--button-danger-fill, $--button-danger-border);
+  }
+  @include m(info) {
+    @include button-variant($--button-info-color, $--button-info-fill, $--button-info-border);
+  }
+  @include m(error) {
+    @include button-variant($--button-error-color, $--button-error-fill, $--button-error-border);
+  }
+  @include m(medium) {
+    @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
+  }
+  @include m(small) {
+    @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+  }
+  @include m(mini) {
+    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+  }
+  @include m(text) {
+    border-color: transparent;
+    color: $--color-primary;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    &:hover,
+    &:focus {
+      color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+      border-color: transparent;
+      background-color: transparent;
     }
-    @include m(text) {
-        border-color: transparent;
-        color: $--color-primary;
-        background: transparent;
-        padding-left: 0;
-        padding-right: 0;
-    
-        &:hover,
-        &:focus {
-          color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
-          border-color: transparent;
-          background-color: transparent;
-        }
-        &:active {
-          color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-          border-color: transparent;
-          background-color: transparent;
-        }
-    
-        &.is-disabled,
-        &.is-disabled:hover,
-        &.is-disabled:focus {
-          border-color: transparent;
-        }
+    &:active {
+      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      border-color: transparent;
+      background-color: transparent;
     }
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus {
+      border-color: transparent;
+    }
+  }
 }
