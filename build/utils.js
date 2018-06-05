@@ -29,13 +29,6 @@ exports.cssLoaders = function(options) {
         }
     }
 
-    const scssLoader = {
-        loader: 'scss-loader',
-        options: {
-            sourceMap: options.sourceMap
-        }
-    }
-
     // generate loader string to be used with extract text plugin
     function generateLoaders(loader, loaderOptions) {
         const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
@@ -69,7 +62,7 @@ exports.cssLoaders = function(options) {
         sass: generateLoaders('sass', {
             indentedSyntax: true
         }),
-        scss: generateLoaders('scss'),
+        scss: generateLoaders('sass'),
         stylus: generateLoaders('stylus'),
         styl: generateLoaders('stylus')
     }

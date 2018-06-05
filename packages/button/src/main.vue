@@ -1,10 +1,8 @@
 <template>
-  <div class="wec-button">
-    <button class="button" :class="[type?'button-' + type:'', size? 'button-'+ size:'']">
+    <button class="wec-button" :class="[type?'wec-button--' + type:'', size? 'wec-button--'+ size:'']">
       <!-- 用来显示按钮文字 -->
       <span v-if="$slots.default"><slot></slot></span>
     </button>
-  </div>
 </template>
 <script>
 export default {
