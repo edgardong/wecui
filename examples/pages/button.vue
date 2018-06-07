@@ -1,7 +1,7 @@
 <template>
   <section class="demo-button">
       <div class="button-item"><wec-button>default</wec-button></div>
-      <div class="button-item"><wec-button v-on:click="test" size="mini">mini</wec-button></div>
+      <div class="button-item"><wec-button @click="test" size="mini">mini</wec-button></div>
       <div class="button-item"><wec-button size="small">small</wec-button></div>
       <div class="button-item"><wec-button size="medium">middle</wec-button></div>
       <div class="button-item"><wec-button size="large">large</wec-button></div>
@@ -9,7 +9,7 @@
       <div class="button-item"><wec-button type="primary">primary</wec-button></div>
       <div class="button-item"><wec-button type="info">info</wec-button></div>
       <div class="button-item"><wec-button type="warning">warning</wec-button></div>
-      <div class="button-item"><wec-button disabled type="success">success</wec-button></div>
+      <div class="button-item"><wec-button @click="test" disabled type="success">success</wec-button></div>
       <div class="button-item"><wec-button type="error">error</wec-button></div>
       <div class="button-item"><wec-button type="text">text</wec-button></div>
   </section>

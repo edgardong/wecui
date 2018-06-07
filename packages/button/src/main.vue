@@ -2,7 +2,7 @@
   <button class="wec-button" 
   :disabled="disabled" 
   @click="handleClick"
-  :class="[type?'wec-button--' + type:'', size? 'wec-button--'+ size:'',disabled?'wec-button--disabled':'']">
+  :class="[type?'wec-button--' + type:'', size? 'wec-button--'+ size:'', {'is-disabled':disabled}]">
     <!-- 用来显示按钮文字 -->
     <span v-if="$slots.default">
       <slot></slot>
