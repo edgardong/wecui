@@ -35,33 +35,47 @@
       outline: none;
     }
   }
+  /** primary 按钮 **/
   @include m(primary) {
     @include button-variant($--button-primary-color, $--button-primary-fill, $--button-primary-border);
   }
+  /** success 按钮 **/
   @include m(success) {
     @include button-variant($--button-success-color, $--button-success-fill, $--button-success-border);
   }
+  /** warning 按钮 **/
   @include m(warning) {
     @include button-variant($--button-warning-color, $--button-warning-fill, $--button-warning-border);
   }
+  /** danger 按钮 **/
   @include m(danger) {
     @include button-variant($--button-danger-color, $--button-danger-fill, $--button-danger-border);
   }
+  /** info 按钮 **/
   @include m(info) {
     @include button-variant($--button-info-color, $--button-info-fill, $--button-info-border);
   }
+  /** error 按钮 **/
   @include m(error) {
     @include button-variant($--button-error-color, $--button-error-fill, $--button-error-border);
   }
+  /** large 按钮 **/
+  @include m(large) {
+    @include button-size($--button-large-padding-vertical, $--button-large-padding-horizontal, $--button-large-font-size, $--button-large-border-radius);
+  }
+  /** medium 按钮 **/
   @include m(medium) {
     @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
   }
+  /** small 按钮 **/
   @include m(small) {
     @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
   }
+  /** mini 按钮 **/
   @include m(mini) {
     @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
   }
+  /**文本按钮**/
   @include m(text) {
     border-color: transparent;
     color: $--color-primary;
