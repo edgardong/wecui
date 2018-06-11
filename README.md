@@ -1,27 +1,31 @@
-# wui
+# WECUI
 
-> a component library
+> My mobile component library 
 
-## Build Setup
+## 安装
 
-``` bash
-# install dependencies
-npm install
+> npm install wecui --save
 
-# serve with hot reload at localhost:8080
-npm run dev
+## CDN在线引用
 
-# build for production with minification
-npm run build
+目前可以通过[unpkg.com/wecui](https://unpkg.com/wecui@1.1.3/)获取到最新版本的资源，在页面上引入js和css文件即可开始使用。
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
+``` html
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/wecui@1.1.3/lib/wecui-css/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/wecui@1.1.3/lib/wecui.js"></script>
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 快速开始
+
+``` javascript
+import Vue from 'vue'
+import WECUI from 'wecui'
+import 'wecui/lib/wecui-css/index.css'
+
+Vue.use(WECUI)
+```
+## License
+
+### MIT
