@@ -3,7 +3,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import isMobile from './is-mobile'
 import 'packages/wecui-css/src/index.scss'
-import '../assets/docs.css'
+import '../assets/docs.scss'
 import wecui from '../../src/index.js'
 
 import registerRoute from './router.config'
