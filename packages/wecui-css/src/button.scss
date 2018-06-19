@@ -54,7 +54,7 @@
       border-color: $--button-disabled-border;
     }
 
-    &.el-button--text {
+    &.wec-button--text {
       background-color: transparent;
     }
 
@@ -108,6 +108,10 @@
   /** mini 按钮 **/
   @include m(mini) {
     @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+  }
+  /** block 按钮 **/
+  @include m(block) {
+    @include button-size($--button-block-padding-vertical, $--button-block-padding-horizontal, $--button-block-font-size, $--button-block-border-radius,$--button-block-width);
   }
   /**文本按钮**/
   @include m(text) {

@@ -63,10 +63,11 @@
   }
 }
 
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius,$button-width:auto) {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
+  width: $button-width;
   &.is-round {
     padding: $padding-vertical $padding-horizontal;
   }

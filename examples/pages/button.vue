@@ -1,6 +1,7 @@
 <template>
   <section class="demo-button">
-      <div class="button-item"><wec-button>default</wec-button></div>
+      <div class="button-item"><wec-button plain>default</wec-button></div>
+      <div class="button-item"><wec-button size="block">block</wec-button></div>
       <div class="button-item"><wec-button @click="test" size="mini">mini</wec-button></div>
       <div class="button-item"><wec-button size="small">small</wec-button></div>
       <div class="button-item"><wec-button size="medium">middle</wec-button></div>
@@ -34,6 +35,8 @@ export default {
 
 <style lang="scss" scoped>
 .demo-button {
+  // text-align: center;
+  // margin: 0 20px;
   .button-item {
     margin-bottom: 10px;
   }
