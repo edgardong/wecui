@@ -5,15 +5,9 @@
       "showInMobile": true,
       "groups": [
         {
-          "groupName": "基础组件",
+          "groupName": "基础CSS组件",
           "isOpen": false,
           "list": [
-            {
-              "path": "/hello",
-              "title": "Hello",
-              "name": "hello",
-              "component": "hello"
-            },
             {
               "path": "/header",
               "title": "Header 导航栏",
@@ -29,7 +23,7 @@
           ]
         },
         {
-          "groupName": "表单组件",
+          "groupName": "表单Form组件",
           "isOpen": false,
           "list": [
             {
@@ -43,6 +37,18 @@
               "title": "header1",
               "name": "header1",
               "component": "header"
+            }
+          ]
+        },
+        {
+          "groupName":"脚本JS组件",
+          "isOpen": false,
+          "list": [
+            {
+              "path":"/button",
+              "title":"JS组件",
+              "name":"jscomponents",
+              "component":"js"
             }
           ]
         }
