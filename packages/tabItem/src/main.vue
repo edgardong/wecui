@@ -1,11 +1,11 @@
 <template>
-  <div class="wec-tabbar">
-    <slot></slot>    
+  <div class="wec-tabItem">
+    <slot></slot>
   </div>
 </template>
 <script>
 export default {
-  name: "wec-tabbar",
+  name: 'wec-tabItem',
   props: {},
   data: function() {
     return {};
@@ -13,5 +13,5 @@ export default {
   methods: {},
   computed: {},
   mounted() {}
-};
+}
 </script>

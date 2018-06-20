@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import MobileApp from './MobileApp'
 import wecui from 'src/index.js'
 import isMobile from './is-mobile.js'
-import Hello from '../pages/hello.vue'
 // import 'src/assets/fonts/iconfont.css'
 import '../../src/style/reset.css'
 import 'packages/wecui-css/src/index.scss'
@@ -13,6 +12,9 @@ import registerRoute from './router.config'
 import navConfig from './nav.config'
 
 const routesConfig = registerRoute(navConfig)
+
+console.log(__dirname);
+console.log(wecui)
 
 Vue.use(wecui)
 Vue.use(VueRouter)

@@ -77,7 +77,14 @@ const packagesFiles = [{
 </template>
 <script>
 export default {
-  name: 'wec-${componentname}'
+  name: 'wec-${componentname}',
+  props: {},
+  data: function() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  mounted() {}
 }
 </script>`
   },
@@ -87,8 +94,8 @@ export default {
 }`
   }, {
     filename: `${componentname}/index.js`,
-    content: `import WEC${componentname} from './src/main';
-export default WEC${componentname};`
+    content: `import WEC${ComponentName} from './src/main';
+export default WEC${ComponentName};`
   }
 ]
 // 单元测试文件
@@ -107,7 +114,6 @@ describe('${ComponentName}', () => {
   })
 })`
 }]
-
 
 // 组件写入 components.json
 const componentsFile = require('../../components.json')
@@ -174,12 +180,20 @@ for (var key in navConfig) {
   })
 }
 
+
 fileSave(path.join(navPath, 'nav.config.json'))
   .write(JSON.stringify(navConfig, null, '  '), 'utf8')
   .end('\n')
 
 console.log('')
 console.log('nav导航创建完成')
+
+// 组件样式的引入到index.scss中去
+let fs = require('fs');
+const scssTemplate = `\n@import './${componentname}.scss';`;
+const scssFilePath = path.resolve(__dirname,'../../packages/wecui-css/src/index.scss');
+
+fs.appendFile(scssFilePath,scssTemplate,'utf8');
 
 // 注册路由修改
 var endOfLine = require('os').EOL;

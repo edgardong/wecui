@@ -25,6 +25,12 @@
               "title": "Tabbar 底部Tab",
               "name": "tabbar",
               "component": "/tabbar"
+            },
+            {
+              "path": "/tab-item",
+              "title": "TabItem Tab项",
+              "name": "tab-item",
+              "component": "/tab-item"
             }
           ]
         },
@@ -33,10 +39,10 @@
           "isOpen": false,
           "list": [
             {
-              "path": "/hello",
-              "title": "Hello1",
-              "name": "hello1",
-              "component": "hello"
+              "path": "/header",
+              "title": "header",
+              "name": "header",
+              "component": "header"
             },
             {
               "path": "/header",

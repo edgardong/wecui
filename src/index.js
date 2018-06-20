@@ -2,11 +2,13 @@
 import Button from '../packages/button/index.js'
 import Header from '../packages/header/index.js'
 import Tabbar from '../packages/tabbar/index.js'
+import TabItem from '../packages/tab-item/index.js'
 
 const components = [
   Button,
   Header,
-  Tabbar
+  Tabbar,
+  TabItem
 ]
 
 // 提供plugins的install方法
