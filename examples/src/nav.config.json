@@ -19,6 +19,12 @@
               "title": "Button 按钮",
               "name": "button",
               "component": "button"
+            },
+            {
+              "path": "/tabbar",
+              "title": "Tabbar 底部Tab",
+              "name": "tabbar",
+              "component": "/tabbar"
             }
           ]
         },
