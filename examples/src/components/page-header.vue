@@ -2,7 +2,7 @@
   <div class="page-header">
     <div class="page-header__top">
       <h1 class="page-header__logo">
-        <a href="#">WECUI</a>
+        <a hhref="javascript:;" @click="backHandler">WECUI</a>
       </h1>
       <ul class="page-header__navs">
         <li class="page-header__item">
@@ -20,19 +20,26 @@
 </template>
 
 <script>
-    export default {
+export default {
   data() {
     return {
       // version: window._global.version,
       scrollTop: 0
     };
   },
+  methods: {
+    // 返回事件处理
+    backHandler: function(params) {
+      this.$router.replace({ path: "/" });
+    }
+  },
   mounted() {
     const _this = this;
     let timer;
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       clearTimeout(timer);
-      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      const scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop;
       timer = setTimeout(() => {
         _this.scrollTop = scrollTop;
       }, 500);
@@ -43,7 +50,7 @@
 
 <style lang="postcss">
 @component-namespace page {
-    @b header {
+  @b header {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -52,7 +59,7 @@
       overflow: hidden;
       height: 60px;
       background-color: #fbfbfb;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     }
     @e logo {
       float: left;
@@ -86,7 +93,7 @@
       position: relative;
       z-index: -1;
       @m shadow {
-        box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
       }
       a,
       span {
@@ -100,10 +107,10 @@
       font-size: 16px;
       margin: 0 20px;
       &:hover {
-        color: #3388FF;
+        color: #3388ff;
       }
       @m active {
-        color: #3388FF;
+        color: #3388ff;
       }
     }
     @e github {

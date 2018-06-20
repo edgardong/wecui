@@ -5,7 +5,7 @@
       "showInMobile": true,
       "groups": [
         {
-          "groupName": "基础CSS组件",
+          "groupName": "CSS组件",
           "isOpen": false,
           "list": [
             {
@@ -23,7 +23,7 @@
           ]
         },
         {
-          "groupName": "表单Form组件",
+          "groupName": "FORM组件",
           "isOpen": false,
           "list": [
             {
@@ -41,14 +41,14 @@
           ]
         },
         {
-          "groupName":"脚本JS组件",
+          "groupName": "JS组件",
           "isOpen": false,
           "list": [
             {
-              "path":"/button",
-              "title":"JS组件",
-              "name":"jscomponents",
-              "component":"js"
+              "path": "/button",
+              "title": "JS组件",
+              "name": "jscomponents",
+              "component": "js"
             }
           ]
         }

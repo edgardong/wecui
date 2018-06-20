@@ -35,10 +35,10 @@ const examplesFiles = [
   {
     filename: `docs/${componentname}.md`,
     content: `## ${ComponentName} ${chineseName}
-    ### 基本用法
-    \`\`\`html
-      <wec-${componentname} ></wec-${componentname}>
-    \`\`\`
+  ### 基本用法
+  \`\`\`html
+    <wec-${componentname} ></wec-${componentname}>
+  \`\`\`
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |

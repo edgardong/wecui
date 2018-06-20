@@ -1,7 +1,7 @@
 <template>
   <div class="wec-header-demo">
-    <wec-header class="header1" :show-back="true" title="显示返回按钮" @back-click="backClick1"></wec-header>
-    <wec-header class="header2" title="WECUI Header"></wec-header>
+    <wec-header class="header1" :show-back="true" title="Heade导航栏" @back-click="backClick1"></wec-header>
+    <wec-header class="header2" :show-back="true" title="WECUI Header"></wec-header>
     <wec-header class="header3" :show-more="true" title="显示更多按钮" @more-click="showMore"></wec-header>
     <wec-header class="header4" @back-click="backClick" :show-back="true" :show-more="true" title="显示左右按钮"></wec-header>
   </div>

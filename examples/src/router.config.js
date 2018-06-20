@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 // import Router from 'vue-router'
-import hello from '../pages/hello'  // 请自行去pages下面创建一个hello.vue，以方便之后的测试
+import hello from '../docs/hello.md'
 import MobileNav from '../src/components/mobile-nav'
 import isMobile from './is-mobile'
 

@@ -1,7 +1,7 @@
 <template>
   <div class="wec-header">
     <!-- 左侧返回按钮 -->
-    <i v-if="showBack" @click="backClick" class="icon iconfont icon-xiangzuo1 left-icon"></i>
+    <i v-if="showBack" @click="backHandler" class="icon iconfont icon-xiangzuo1 left-icon"></i>
     <!-- 标题 -->
     <span>{{title}}</span>
     <!-- 是否显示更多按钮 -->
@@ -21,11 +21,20 @@
       showBack:{
         type:Boolean,
         default: false
+      },
+      backClick: {
+        type: Function        
       }
     },
     methods: {
-      backClick() {
-        this.$emit('back-click',{})
+      backHandler() {
+        if(this.showBack && this.backClick && typeof this.backClick=='function') {
+          this.backClick();
+        }else {
+          this.$router.go(-1);
+        }
+
+        // this.$emit('back-click',{})
       },
       moreClick() {
         this.$emit('more-click',{})
