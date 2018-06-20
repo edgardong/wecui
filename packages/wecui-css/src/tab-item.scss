@@ -1,2 +1,11 @@
-.wec-tab-item {
+@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+
+@include b(tab-item) {
+  flex: 1;
+  text-align: center;
+  &.is-selected {
+    color: $--color-blue;
+  }
 }

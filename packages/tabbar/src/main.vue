@@ -4,14 +4,19 @@
   </div>
 </template>
 <script>
-export default {
-  name: "wec-tabbar",
-  props: {},
-  data: function() {
-    return {};
-  },
-  methods: {},
-  computed: {},
-  mounted() {}
-};
+  export default {
+    name: "wec-tabbar",
+    props: {
+      value: {
+        type: String,
+        required: true
+      }
+    },
+    data: function() {
+      return {};
+    },
+    methods: {},
+    computed: {},
+    mounted() {}
+  };
 </script>

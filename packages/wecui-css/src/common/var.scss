@@ -96,6 +96,7 @@ $--font-line-height-primary: 24px !default;
 /* Size
 -------------------------- */
 $--size-base: 14px !default;
+$--size-mini: 12px !default;
 
 /* z-index
 -------------------------- */
@@ -262,3 +263,7 @@ $--breakpoints-spec: (
   'lg-and-down': (max-width: $--xl - 1),
   'xl-only' : (min-width: $--xl),
 );
+
+/**导航栏高度**/
+$--bar-height: 46px !default;
+$--bar-lineheight: 46px !default;
