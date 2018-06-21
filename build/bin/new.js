@@ -90,7 +90,13 @@ export default {
   },
   {
     filename: `wecui-css/src/${componentname}.scss`,
-    content: `.wec-${componentname} {
+    content: `@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+@include b(${componentname}) {
+
+}
+.wec-${componentname} {
 }`
   }, {
     filename: `${componentname}/index.js`,

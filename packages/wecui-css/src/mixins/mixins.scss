@@ -46,6 +46,8 @@
   }
 }
 
+/** 包含某个状态的mixin **/
+
 @mixin when($state) {
   @at-root {
     &.#{$state-prefix + $state} {
@@ -53,6 +55,18 @@
     }
   }
 }
+
+/** 包含某个组件的mixin **/
+
+@mixin h($contain) {
+  @at-root {
+    &.#{$contain-prefix + $contain} {
+      @content;
+    }
+  }
+}
+
+/**位置的简写**/
 
 @mixin position($position, $top, $right:$top, $bottom:$top, $left:$right) {
   position: $position;

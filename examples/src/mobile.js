@@ -13,7 +13,6 @@ import navConfig from './nav.config'
 
 const routesConfig = registerRoute(navConfig)
 
-console.log(__dirname);
 console.log(wecui)
 
 Vue.use(wecui)

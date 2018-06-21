@@ -1,0 +1,15 @@
+@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+@include b(tab-container) {
+  @include position(absolute, 0); // color: green;
+  overflow: auto;
+}
+
+@include h(header) {
+  top: $--bar-height;
+}
+
+@include h(footer) {
+  bottom: $--bar-height;
+}

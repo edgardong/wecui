@@ -31,6 +31,18 @@
               "title": "TabItem Tab项",
               "name": "tab-item",
               "component": "/tab-item"
+            },
+            {
+              "path": "/tab-container",
+              "title": "TabContainer Tab面板",
+              "name": "tab-container",
+              "component": "/tab-container"
+            },
+            {
+              "path": "/tab-container-item",
+              "title": "TabContainerItem Tab面板子项",
+              "name": "tab-container-item",
+              "component": "/tab-container-item"
             }
           ]
         },
