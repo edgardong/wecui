@@ -1,7 +1,13 @@
 
 <template>
-  <section class="demo-tabbar">
-    <wec-header :show-back="true" title="Tabbar 底部Tab"></wec-header>
+  <section class="demo-navbar">
+    <wec-header :show-back="true" title="Navbar 顶部选项卡"></wec-header>
+
+    <wec-navbar v-model="selected">
+      <wec-tab-item id="first">第一个tab</wec-tab-item>
+      <wec-tab-item id="second">第二个tab</wec-tab-item>
+      <wec-tab-item id="third">第三个tab</wec-tab-item>
+    </wec-navbar>
 
     <!-- 中间内容Tab -->
     <wec-tab-container v-model="selected">
@@ -15,11 +21,12 @@
     </wec-tab-container>
 
     <!-- 底部tab选项卡 -->
-    <wec-tabbar v-model="selected">
+    <wec-tabbar v-model="selected" v-if="false">
       <wec-tab-item id="first">第一个tab</wec-tab-item>
       <wec-tab-item id="second">第二个tab</wec-tab-item>
       <wec-tab-item id="third">第三个tab</wec-tab-item>
     </wec-tabbar>
+
   </section>
 </template>
 
@@ -37,13 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.demo-tabbar {
+.demo-navbar {
   padding-top: 60px;
-  .item {
-    height: 40px;
-    line-height: 40px;
-    color: #999999;
-    border-bottom: 1px solid #666666;
-  }
 }
 </style>

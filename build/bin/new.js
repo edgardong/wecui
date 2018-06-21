@@ -37,7 +37,8 @@ const testPath = path.resolve(__dirname, '../../test/unit/specs')
 const examplesFiles = [{
     filename: `docs/${componentname}.md`,
     content: `## ${ComponentName} ${chineseName}
-  ### 基本用法
+### 基本用法
+###### 基本用法描述
   \`\`\`html
     <wec-${componentname} ></wec-${componentname}>
   \`\`\`
@@ -95,8 +96,6 @@ export default {
 @import './mixins/mixins';
 @include b(${componentname}) {
 
-}
-.wec-${componentname} {
 }`
   }, {
     filename: `${componentname}/index.js`,

@@ -1,5 +1,5 @@
 <template>
-  <div class="wec-tab-container" :class="{'has-header': getHeader,'has-footer':getFooter}">
+  <div class="wec-tab-container" :style="getStyle" ref="wectabcontainer">
     <slot></slot>
   </div>
 </template>
@@ -13,23 +13,37 @@ export default {
     }
   },
   data: function() {
-    return {};
+    return {
+      hasFooter: false,
+      hasHeader: false
+    };
   },
-  methods: {
-    getHeader: function() {
-      this.$nextTick(() => {
-        let header = document.querySelector(".wec-header");
-        return header !== null;
-      });
-    },
-    getFooter: function() {
-      this.$nextTick(() => {
-        let tabbar = document.querySelector(".wec-tabbar");
-        return tabbar !== null;
-      });
+  methods: {},
+  computed: {
+    getClass() {},
+    getStyle: {
+      cache: false,
+      get() {
+        this.$nextTick(() => {
+          let header = document.querySelector(".wec-header");
+          let tabbar = document.querySelector(".wec-tabbar");
+          let navbar = document.querySelector(".wec-navbar");
+          let oldClassName = this.$refs.wectabcontainer.className;
+          let className = "";
+          if (header && oldClassName.indexOf("has-header") == -1) {
+            className += " has-header ";
+          }
+          if (tabbar && oldClassName.indexOf("has-footer") == -1) {
+            className += " has-footer ";
+          }
+          if (navbar) {
+            className += " has-navbar";
+          }
+          this.$refs.wectabcontainer.className += className;
+        });
+      }
     }
   },
-  computed: {},
   mounted() {}
 };
 </script>

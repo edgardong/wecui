@@ -28,21 +28,27 @@
             },
             {
               "path": "/tab-item",
-              "title": "TabItem Tab项",
+              "title": "TabItem Tab子项",
               "name": "tab-item",
               "component": "/tab-item"
             },
             {
               "path": "/tab-container",
-              "title": "TabContainer Tab面板",
+              "title": "TabContainer 面板",
               "name": "tab-container",
               "component": "/tab-container"
             },
             {
               "path": "/tab-container-item",
-              "title": "TabContainerItem Tab面板子项",
+              "title": "TabContainerItem 面板子项",
               "name": "tab-container-item",
               "component": "/tab-container-item"
+            },
+            {
+              "path": "/navbar",
+              "title": "Navbar 顶部选项卡",
+              "name": "navbar",
+              "component": "/navbar"
             }
           ]
         },

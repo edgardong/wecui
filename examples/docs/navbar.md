@@ -1,7 +1,8 @@
-## TabItem Tab项
-  ### 基本用法
+## Navbar 顶部选项卡
+### 基本用法
+###### 顶部选项卡，与 Tabbar 类似，依赖 tab-item 组件。
   ```html
-    <wec-tabItem ></wec-tabItem>
+    <wec-navbar ></wec-navbar>
   ```
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |

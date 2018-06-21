@@ -6,8 +6,15 @@
   overflow: auto;
 }
 
-@include h(header) {
+@include h(navbar) {
   top: $--bar-height;
+}
+
+@include h(header) {
+  // top: $--bar-height;
+  @include h(navbar) {
+    top: $--bar-height*2;
+  }
 }
 
 @include h(footer) {

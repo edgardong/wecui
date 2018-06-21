@@ -1,6 +1,6 @@
 <template>
   <div class="wec-tabbar">
-    <slot></slot>    
+    <slot></slot>
   </div>
 </template>
 <script>
