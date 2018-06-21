@@ -5,5 +5,6 @@
   "tab-item": "./packages/tab-item/index.js",
   "tab-container": "./packages/tab-container/index.js",
   "tab-container-item": "./packages/tab-container-item/index.js",
-  "navbar": "./packages/navbar/index.js"
+  "navbar": "./packages/navbar/index.js",
+  "cell": "./packages/cell/index.js"
 }

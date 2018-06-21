@@ -1,0 +1,15 @@
+@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+@include b(cell) {
+  height: $--cell-height;
+  line-height: $--cell-lineheight;
+  padding: 0 $--cell-padding;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fafafa;
+  border-bottom: 1px solid #d9d9d9;
+  @include m(value) {
+    color: green;
+  }
+}

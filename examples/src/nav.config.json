@@ -49,6 +49,12 @@
               "title": "Navbar 顶部选项卡",
               "name": "navbar",
               "component": "/navbar"
+            },
+            {
+              "path": "/cell",
+              "title": "Cell 单元格",
+              "name": "cell",
+              "component": "/cell"
             }
           ]
         },

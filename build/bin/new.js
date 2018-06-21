@@ -62,7 +62,7 @@ const examplesFiles = [{
 </template>
 <style lang="scss" scoped>
 .demo-${componentname}{
-  padding-top: 60px;
+  padding-top: 46px;
 }
 </style>`
   }
