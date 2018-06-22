@@ -1,15 +1,16 @@
 // 基本颜色
-$--color-blue: #26a2ff;
-$--color-white: #ffffff;
+$--color-blue: #26a2ff !default;
+$--color-white: #ffffff !default;
 $--color-success: #4caf50 !default;
 $--color-danger: #f56c6c !default;
 $--color-info: #909399 !default;
-$--color-black: #000000;
-$--color-grey: #d9d9d9;
-$--color-border: #c8c8cd;
-$--color-error: #f44336;
+$--color-black: #000000 !default;
+$--color-grey: #d9d9d9 !default;
+$--color-border: #c8c8cd !default;
+$--color-error: #f44336 !default;
 $--color-warning: #ffc107 !default;
 $--color-primary: $--color-blue;
+
 
 /* WECUI Chalk Variables */
 
@@ -49,6 +50,7 @@ $--color-text-primary: #303133 !default;
 $--color-text-regular: #606266 !default;
 $--color-text-secondary: #909399 !default;
 $--color-text-placeholder: #c0c4cc !default;
+$--color-text-comment: #888888 !default;
 
 /* Link
 -------------------------- */
