@@ -25,7 +25,7 @@
               "title": "Tabbar 底部Tab",
               "name": "tabbar",
               "component": "/tabbar"
-            },            
+            },
             {
               "path": "/tab-container",
               "title": "TabContainer 面板",
@@ -55,18 +55,12 @@
         {
           "groupName": "FORM组件",
           "isOpen": false,
-          "list": [
+          "list": [            
             {
-              "path": "/header",
-              "title": "header",
-              "name": "header",
-              "component": "header"
-            },
-            {
-              "path": "/header",
-              "title": "header1",
-              "name": "header1",
-              "component": "header"
+              "path": "/switch",
+              "title": "Switch 开关",
+              "name": "switch",
+              "component": "/switch"
             }
           ]
         },

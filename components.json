@@ -7,5 +7,6 @@
   "tab-container-item": "./packages/tab-container-item/index.js",
   "navbar": "./packages/navbar/index.js",
   "cell": "./packages/cell/index.js",
-  "search": "./packages/search/index.js"
+  "search": "./packages/search/index.js",
+  "switch": "./packages/switch/index.js"
 }
