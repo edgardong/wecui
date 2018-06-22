@@ -55,6 +55,12 @@
               "title": "Cell 单元格",
               "name": "cell",
               "component": "/cell"
+            },
+            {
+              "path": "/search",
+              "title": "Search 搜索",
+              "name": "search",
+              "component": "/search"
             }
           ]
         },

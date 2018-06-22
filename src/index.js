@@ -7,6 +7,7 @@ import TabContainer from '../packages/tab-container/index.js'
 import TabContainerItem from '../packages/tab-container-item/index.js'
 import Navbar from '../packages/navbar/index.js'
 import Cell from '../packages/cell/index.js'
+import Search from '../packages/search/index.js'
 
 const components = [
   Button,
@@ -16,7 +17,8 @@ const components = [
   TabContainer,
   TabContainerItem,
   Navbar,
-  Cell
+  Cell,
+  Search
 ]
 
 // 提供plugins的install方法

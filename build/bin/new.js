@@ -14,15 +14,23 @@ process.on('exit', () => {
 console.log(process.argv)
 
 if (!process.argv[2]) {
+  console.error('[组件类型]必填 - Please enter new component type (css/form/js)')
+  process.exit(1)
+}
+
+if (!process.argv[3]) {
   console.error('[组件名]必填 - Please enter new component name')
   process.exit(1)
 }
 
+let componentType = process.argv[2];
+
+const groupIndex = componentType == 'css' ? 0 : componentType == 'js' ? 2 : 1;
 const path = require('path')
 const fileSave = require('file-save')
 const uppercamelcase = require('uppercamelcase')
-const componentname = process.argv[2]
-const chineseName = process.argv[3] || componentname
+const componentname = process.argv[3]
+const chineseName = process.argv[4] || componentname
 const ComponentName = uppercamelcase(componentname)
 const {
   version
@@ -177,7 +185,7 @@ for (var key in navConfig) {
 
 
   let langItem = navConfig[key][0]
-  langItem.groups[0].list.push({
+  langItem.groups[groupIndex].list.push({
     "path": `/${componentname}`,
     "title": `${ComponentName} ${chineseName}`,
     "name": `${componentname}`,
@@ -196,14 +204,14 @@ console.log('nav导航创建完成')
 // 组件样式的引入到index.scss中去
 let fs = require('fs');
 const scssTemplate = `\n@import './${componentname}.scss';`;
-const scssFilePath = path.resolve(__dirname,'../../packages/wecui-css/src/index.scss');
+const scssFilePath = path.resolve(__dirname, '../../packages/wecui-css/src/index.scss');
 
-fs.appendFile(scssFilePath,scssTemplate,'utf8');
+fs.appendFile(scssFilePath, scssTemplate, 'utf8');
 
 // 注册路由修改
 var endOfLine = require('os').EOL;
 var render = require('json-templater/string');
-const componentsPath = path.resolve(__dirname,'../../src');
+const componentsPath = path.resolve(__dirname, '../../src');
 const componentsConfig = require('../../components.json');
 
 var IMPORT_TEMPLATE = 'import {{name}} from \'../packages/{{package}}/index.js\'';
