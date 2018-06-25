@@ -7,7 +7,8 @@
         </slot>
       </span>
       <div class="wec-cell__label--label">
-        <span>{{label}}</span>
+        <span>
+          <slot name="left"></slot>{{label}}</span>
         <span class="wec-cell__label--comment" v-if="comment">{{comment}}</span>
       </div>
     </div>
@@ -55,6 +56,7 @@ export default {
   },
   methods: {
     clickHandler($event) {
+      this.$emit("click");
       if (!this.link) {
         $event.preventDefault();
         return;

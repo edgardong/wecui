@@ -55,12 +55,18 @@
         {
           "groupName": "FORM组件",
           "isOpen": false,
-          "list": [            
+          "list": [
             {
               "path": "/switch",
               "title": "Switch 开关",
               "name": "switch",
               "component": "/switch"
+            },
+            {
+              "path": "/radio",
+              "title": "Radio 单选框",
+              "name": "radio",
+              "component": "/radio"
             }
           ]
         },

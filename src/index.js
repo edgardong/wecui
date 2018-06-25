@@ -9,6 +9,7 @@ import Navbar from '../packages/navbar/index.js'
 import Cell from '../packages/cell/index.js'
 import Search from '../packages/search/index.js'
 import Switch from '../packages/switch/index.js'
+import Radio from '../packages/radio/index.js'
 
 const components = [
   Button,
@@ -20,7 +21,8 @@ const components = [
   Navbar,
   Cell,
   Search,
-  Switch
+  Switch,
+  Radio
 ]
 
 // 提供plugins的install方法
