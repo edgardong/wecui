@@ -68,6 +68,17 @@ const examplesFiles = [{
     <wec-${componentname}></wec-${componentname}>
   </section>
 </template>
+<script>
+export default {
+  props: {},
+  data: function() {
+    return {};
+  },
+  methods: {},
+  computed: {},
+  mounted() {}
+}
+</script>
 <style lang="scss" scoped>
 .demo-${componentname}{
   padding-top: 46px;

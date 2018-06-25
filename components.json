@@ -9,5 +9,6 @@
   "cell": "./packages/cell/index.js",
   "search": "./packages/search/index.js",
   "switch": "./packages/switch/index.js",
-  "radio": "./packages/radio/index.js"
+  "radio": "./packages/radio/index.js",
+  "checklist": "./packages/checklist/index.js"
 }

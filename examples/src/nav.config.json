@@ -67,6 +67,12 @@
               "title": "Radio 单选框",
               "name": "radio",
               "component": "/radio"
+            },
+            {
+              "path": "/checklist",
+              "title": "Checklist 复选框",
+              "name": "checklist",
+              "component": "/checklist"
             }
           ]
         },
