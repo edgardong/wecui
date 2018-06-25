@@ -19,23 +19,27 @@ export default {
   },
   data: function() {
     return {
-      checkValue: false
+      // checkValue: false
     };
   },
   methods: {
     checkHandler() {
       if (!this.disabled) {
         this.checkValue = !this.checkValue;
-        this.$emit("input", this.checkValue);
       }
     }
   },
-  watch: {
-    checkValue(value, oldValue) {
-      this.$emit("change", value);
+  watch: {},
+  computed: {
+    checkValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      }
     }
   },
-  computed: {},
   mounted() {}
 };
 </script>
