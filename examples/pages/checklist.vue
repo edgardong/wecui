@@ -15,8 +15,8 @@
   export default {
     data() {
       return {
-        value: "",
-        value1: "",
+        value: [],
+        value1: [],
         label: "选择区域",
         label1: "选择性别",
         options: [

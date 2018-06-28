@@ -1,5 +1,5 @@
 <template>
-  <div class="wec-checklist" @change="$emit('change', currentValue)">
+  <div class="wec-checklist" @change="$emit('change', currentValue)" :class="{ 'is-limit': max <= currentValue.length }">
     <span class="wec-checklist__title">{{title}}</span>
     <wec-cell v-for="(op,index) in options" :key="index" :label="op.label" @click="clickHandler(op)">
       <span slot="left" class="wec-checklist__core"
@@ -22,7 +22,7 @@
         required: true
       },
       value: {
-        type: [String, Object]
+        type: Array
       },
       align: {
         type: String,
@@ -31,6 +31,9 @@
         validator: value => {
           return ["left", "right"].includes(value);
         }
+      },
+      max: {
+        type: Number
       }
     },
     data() {
@@ -38,23 +41,36 @@
         currentValue: this.value
       };
     },
+    computed: {
+      limit() {
+        return this.max < this.currentValue.length;
+      }
+    },
     watch: {
       value(val) {
         this.currentValue = val;
       },
       currentValue(val) {
+        if (this.limit) val.pop();
         this.$emit("input", val);
       }
     },
     methods: {
       clickHandler(option) {
+        // console.log(option);
         if (option.disabled) {
           return;
         }
-        this.currentValue += option.value;
+
+        // 如果已存在该数，删除，否则添加进入数组中
+        if (this.currentValue.includes(option.value)) {
+          let index = this.currentValue.indexOf(option.value);
+          this.currentValue.splice(index, 1);
+        } else {
+          this.currentValue.push(option.value);
+        }
       }
     },
-    computed: {},
     mounted() {}
   };
 </script>
