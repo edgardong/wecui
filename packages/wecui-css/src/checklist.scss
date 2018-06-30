@@ -13,7 +13,6 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
     background-color: $--color-white;
     border: 1px solid $--color-border;
     margin-right: 6px;
@@ -22,19 +21,25 @@
       display: none;
     }
     &.checked {
-      background-color: $--color-blue;
-      &::before {
+      background-color: $--color-white;
+      border-color: $--color-blue;
+      &::after {
         content: '';
         position: absolute;
         left: 0;
         right: 0;
-        top: 0;
+        top: -3px;
         bottom: 0;
-        border-radius: 100%;
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 12px;
         margin: auto;
-        background-color: #ffFfff;
+        background-color: #ffffff;
+        border: 2px solid transparent;
+        border-left: 0;
+        border-top: 0;
+        border-color: #26a2ff;
+        transform: rotate(45deg) scale(1);
+        transition: transform .2s, -webkit-transform .2s;
       }
     }
     &.disabled {

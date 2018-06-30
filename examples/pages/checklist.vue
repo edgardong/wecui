@@ -4,10 +4,10 @@
     <wec-header :show-back="true" title="Checklist 复选框"></wec-header>
 
     <wec-checklist v-model="value" :title="label" :options="options"></wec-checklist>
-    <wec-cell label="城市">{{value }}</wec-cell>
+    <wec-cell label="城市">{{valueText}}</wec-cell>
 
     <wec-checklist v-model="value1" :title="label1" :options="options1" align="right"></wec-checklist>
-    <wec-cell label="性别">{{value1}}</wec-cell>
+    <wec-cell label="性别">{{valueText1}}</wec-cell>
   </section>
 </template>
 
@@ -54,6 +54,34 @@
           }
         ]
       };
+    },
+    computed: {
+      valueText: {
+        get() {
+          let text = "";
+          this.value.forEach(v => {
+            text += v.label + ",";
+          });
+
+          return text;
+        },
+        set(value) {
+          console.log(value);
+        }
+      },
+      valueText1: {
+        get() {
+          let text = "";
+          this.value1.forEach(v => {
+            text += v.label + ",";
+          });
+
+          return text;
+        },
+        set(value) {
+          console.log(value);
+        }
+      }
     }
   };
 </script>

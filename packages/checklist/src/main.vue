@@ -3,7 +3,7 @@
     <span class="wec-checklist__title">{{title}}</span>
     <wec-cell v-for="(op,index) in options" :key="index" :label="op.label" @click="clickHandler(op)">
       <span slot="left" class="wec-checklist__core"
-       :class="{'checked': currentValue.includes(op.value),'disabled':op.disabled,'right':align=='right'}">
+       :class="{'checked': currentValue.includes(op),'disabled':op.disabled,'right':align=='right'}">
         <input type="checkbox" :value="op.value" class="wec-checklist__core--input" v-model="currentValue">
       </span>
     </wec-cell>
@@ -63,11 +63,11 @@
         }
 
         // 如果已存在该数，删除，否则添加进入数组中
-        if (this.currentValue.includes(option.value)) {
-          let index = this.currentValue.indexOf(option.value);
+        if (this.currentValue.includes(option)) {
+          let index = this.currentValue.indexOf(option);
           this.currentValue.splice(index, 1);
         } else {
-          this.currentValue.push(option.value);
+          this.currentValue.push(option);
         }
       }
     },
