@@ -73,6 +73,12 @@
               "title": "Checklist 复选框",
               "name": "checklist",
               "component": "/checklist"
+            },
+            {
+              "path": "/field",
+              "title": "Field 表单编辑器",
+              "name": "field",
+              "component": "/field"
             }
           ]
         },

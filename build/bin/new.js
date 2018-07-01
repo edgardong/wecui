@@ -217,7 +217,10 @@ let fs = require('fs');
 const scssTemplate = `\n@import './${componentname}.scss';`;
 const scssFilePath = path.resolve(__dirname, '../../packages/wecui-css/src/index.scss');
 
-fs.appendFile(scssFilePath, scssTemplate, 'utf8');
+fs.appendFile(scssFilePath, scssTemplate, 'utf8', function (err) {
+  if (err) throw err;
+  console.log('The "data to append" was appended to file!');
+});
 
 // 注册路由修改
 var endOfLine = require('os').EOL;

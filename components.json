@@ -10,5 +10,6 @@
   "search": "./packages/search/index.js",
   "switch": "./packages/switch/index.js",
   "radio": "./packages/radio/index.js",
-  "checklist": "./packages/checklist/index.js"
+  "checklist": "./packages/checklist/index.js",
+  "field": "./packages/field/index.js"
 }

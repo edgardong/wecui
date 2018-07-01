@@ -11,6 +11,7 @@ import Search from '../packages/search/index.js'
 import Switch from '../packages/switch/index.js'
 import Radio from '../packages/radio/index.js'
 import Checklist from '../packages/checklist/index.js'
+import Field from '../packages/field/index.js'
 
 const components = [
   Button,
@@ -24,7 +25,8 @@ const components = [
   Search,
   Switch,
   Radio,
-  Checklist
+  Checklist,
+  Field
 ]
 
 // 提供plugins的install方法

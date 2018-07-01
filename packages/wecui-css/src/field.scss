@@ -1,0 +1,44 @@
+@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+@include b(field) {
+  background-color: red;
+  .wec-cell__label {
+    // flex: 0;
+    .wec-cell__label--label {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  .wec-cell__value {
+    display: flex;
+    align-items: center;
+    flex: 2;
+    height: 25px;
+    input {
+      flex: 1;
+      color: $--color-input__value;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: 0;
+      outline: none;
+    }
+  }
+  @include e(state) {
+    // color: green;
+    margin-left: 6px;
+    .icon {
+      @include when(success) {
+        color: $--color-success;
+      }
+      @include when(error) {
+        color: $--color-error;
+      }
+      @include when(warning) {
+        color: $--color-warning;
+      }
+    }
+  }
+}
