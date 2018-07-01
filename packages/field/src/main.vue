@@ -1,8 +1,11 @@
 <template>
   <div class="wec-field">
     <wec-cell :label="label">
-      <input type="text" :placeholder="placeholderValue">
-      <span class="wec-field__state">
+      <!-- 多行文本 -->
+      <textarea  :placeholder="placeholderValue" :rows="rows" v-if="type=='textarea'"></textarea>
+      <!-- 单行文本显示 -->
+      <input :type="type" :placeholder="placeholderValue" v-else >
+      <span class="wec-field__state" :class="['is-'+state]">
         <i class="icon iconfont" :class="['is-'+ state,'icon-'+state]"></i>
       </span>
     </wec-cell>
@@ -15,6 +18,10 @@
       label: {
         type: String,
         required: true
+      },
+      rows: {
+        type: Number,
+        default: 4
       },
       placeholder: {
         type: String
@@ -38,9 +45,9 @@
       },
       state: {
         type: String,
-        default: "success",
+        default: "loading",
         validator(value) {
-          return ["success", "error", "warning"].indexOf(value) !== -1;
+          return ["success", "error", "warning", "loading"].indexOf(value) !== -1;
         }
       }
     },

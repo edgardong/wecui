@@ -4,7 +4,7 @@
 @include b(cell) {
   @include center-flex();
   position: relative;
-  height: $--cell-height;
+  min-height: $--cell-height;
   padding: 0 $--cell-padding;
   background-color: #fafafa;
   border-bottom: 1px solid #d9d9d9;

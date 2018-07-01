@@ -15,8 +15,9 @@
     display: flex;
     align-items: center;
     flex: 2;
-    height: 25px;
-    input {
+    min-height: 25px;
+    input,
+    textarea {
       flex: 1;
       color: $--color-input__value;
       width: 100%;
@@ -25,10 +26,37 @@
       border: 0;
       outline: none;
     }
+    textarea {
+      resize: none;
+      width: 100%;
+      line-height: 1.6;
+      /*自动适应父布局宽度*/
+      overflow: auto;
+      word-break: break-all;
+    }
   }
   @include e(state) {
     // color: green;
-    margin-left: 6px;
+    // margin-left: 6px;
+    // @keyframes rotating {
+    //   from {
+    //     transform: rotate(0)
+    //   }
+    //   to {
+    //     transform: rotate(360deg)
+    //   }
+    // }
+    @include when(loading) {
+      @keyframes rotating {
+        from {
+          transform: rotate(0)
+        }
+        to {
+          transform: rotate(360deg)
+        }
+      }
+      animation: rotating 1.2s linear infinite; // }
+    }
     .icon {
       @include when(success) {
         color: $--color-success;
@@ -38,6 +66,17 @@
       }
       @include when(warning) {
         color: $--color-warning;
+      }
+      @include when(loading) {
+        // @keyframes rotating {
+        //   from {
+        //     transform: rotate(0)
+        //   }
+        //   to {
+        //     transform: rotate(360deg)
+        //   }
+        // }
+        // animation: rotating 1.2s linear infinite; // }
       }
     }
   }
