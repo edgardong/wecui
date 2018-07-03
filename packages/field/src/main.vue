@@ -2,11 +2,11 @@
   <div class="wec-field">
     <wec-cell :label="label">
       <!-- 多行文本 -->
-      <textarea  :placeholder="placeholderValue" :rows="rows" v-if="type=='textarea'"></textarea>
+      <textarea @blur="blurHandler" @focus="focusHandler" :placeholder="placeholderValue" v-model="currentValue" :rows="rows" v-if="type=='textarea'"></textarea>
       <!-- 单行文本显示 -->
-      <input :type="type" :placeholder="placeholderValue" v-else >
-      <span class="wec-field__state" :class="['is-'+state]">
-        <i class="icon iconfont" :class="['is-'+ state,'icon-'+state]"></i>
+      <input  @blur="blurHandler" @focus="focusHandler" :type="type" :placeholder="placeholderValue" v-else  v-model="currentValue" :value="currentValue">
+      <span class="wec-field__state" :class="['is-'+currentState]">
+        <i class="icon iconfont" :class="['is-'+ currentState,'icon-'+currentState]"></i>
       </span>
     </wec-cell>
   </div>
@@ -45,16 +45,27 @@
       },
       state: {
         type: String,
-        default: "loading",
         validator(value) {
           return ["success", "error", "warning", "loading"].indexOf(value) !== -1;
         }
+      },
+      value: {}
+    },
+    data() {
+      return {
+        currentValue: "",
+        currentState: this.state
+      };
+    },
+    methods: {
+      blurHandler() {
+        this.currentState = this.state;
+        this.$emit("input", this.currentValue);
+      },
+      focusHandler() {
+        this.currentState = "loading";
       }
     },
-    data: function() {
-      return {};
-    },
-    methods: {},
     computed: {
       placeholderValue: {
         get() {
@@ -63,6 +74,14 @@
         set(value) {}
       }
     },
-    mounted() {}
+    mounted() {},
+    watch: {
+      value(val) {
+        this.currentValue = val;
+      }
+      // currentValue(val) {
+      //   this.$emit("input", val);
+      // }
+    }
   };
 </script>
