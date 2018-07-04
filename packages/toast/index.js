@@ -1,2 +1,2 @@
-import WECToast from './src/main';
+import WECToast from './src/main.js';
 export default WECToast;

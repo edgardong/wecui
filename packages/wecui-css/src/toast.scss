@@ -1,6 +1,31 @@
 @import './common/var.scss';
 @import './mixins/function';
 @import './mixins/mixins';
+@import './mixins/transition';
 @include b(toast) {
-
+  position: fixed;
+  max-width: 80%;
+  left: 50%;
+  padding: 20px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: $--border-radius-base;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include when(top) {
+    top: 80px;
+  }
+  @include when(middle) {
+    top: 50%;
+  }
+  @include when(bottom) {
+    bottom: 70px;
+  }
+  @include e(message) {
+    display: block;
+    color: #ffffff;
+  }
+  .icon {
+    font-size: 60px;
+    padding-top: 20px;
+  }
 }

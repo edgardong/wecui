@@ -1,17 +1,38 @@
 <template>
-  <div class="wec-toast">
-    hello toast~~~
-  </div>
+  <transition name="fade">
+    <div class="wec-toast" v-show="visiable" :class="['is-' + position]">
+      <i class="icon iconfont" :class="'icon-' + iconClass" v-if="iconClass !== ''"></i>
+      <span class="wec-toast__message">{{message}}</span>
+    </div>
+  </transition>
 </template>
-<script>
+
+<script type="text/babel">
 export default {
-  name: 'wec-toast',
-  props: {},
+  props: {
+    message: {
+      type: String
+    },
+    visiable: {
+      type: Boolean,
+      default: false
+    },
+    iconClass: {
+      type: String
+    },
+    position: {
+      type: String,
+      default: "middle",
+      validator(value) {
+        return ["top", "middle", "bottom"].indexOf(value) !== -1;
+      }
+    }
+  },
   data() {
     return {};
   },
   methods: {},
   computed: {},
   mounted() {}
-}
+};
 </script>
