@@ -8,6 +8,7 @@
     {{userEmail}}
     <wec-field label="密码" state="warning" type="password"></wec-field>
     <wec-field label="手机号" type="tel"></wec-field>
+    <wec-field label="日期" type="date" v-model="date"></wec-field> {{date}}
     <wec-field label="网站" placeholder="http://www.edgarhao.cn/" type="url"></wec-field>
     <wec-field type="textarea" v-model="textarea"  label="网站" placeholder="http://www.edgarhao.cn/"></wec-field>
     {{textarea}}
@@ -20,7 +21,8 @@
       return {
         userName:'',
         userEmail:'',
-        textarea:''
+        textarea:'',
+        date:''
       };
     },
     methods: {},

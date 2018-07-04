@@ -12,6 +12,7 @@ import Switch from '../packages/switch/index.js'
 import Radio from '../packages/radio/index.js'
 import Checklist from '../packages/checklist/index.js'
 import Field from '../packages/field/index.js'
+import Toast from '../packages/toast/index.js'
 
 const components = [
   Button,
@@ -35,6 +36,9 @@ const install = function (Vue, opt = {}) {
   components.map(component => {
     Vue.component(component.name, component)
   })
+
+  // js componet
+  Vue.$toast = Vue.prototype.$toast = Toast
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

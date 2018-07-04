@@ -91,6 +91,12 @@
               "title": "JS组件",
               "name": "jscomponents",
               "component": "js"
+            },
+            {
+              "path": "/toast",
+              "title": "Toast 提示框",
+              "name": "toast",
+              "component": "/toast"
             }
           ]
         }
