@@ -1,0 +1,4 @@
+@import './transition';
+@mixin rotating() {
+  animation: rotating 1.2s linear infinite;
+}

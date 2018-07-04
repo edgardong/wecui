@@ -26,8 +26,9 @@ export default {
       let option = {
         message: "toast弹出框2",
         duration: 1500,
-        position: "top",
-        iconClass: "success"
+        // position: "top",
+        iconClass: "success",
+        iconColor: '#0099ff'
       };
 
       this.$toast(option);
@@ -64,6 +65,9 @@ export default {
   flex-direction: column;
   .flex1 {
     margin: 10px 0;
+    color: #656b79;
+    border-color:#f6f8fa;
+    background-color: #f6f8fa;
   }
 }
 </style>

@@ -13,6 +13,7 @@ import Radio from '../packages/radio/index.js'
 import Checklist from '../packages/checklist/index.js'
 import Field from '../packages/field/index.js'
 import Toast from '../packages/toast/index.js'
+import Indicator from '../packages/indicator/index.js'
 
 const components = [
   Button,
@@ -27,7 +28,7 @@ const components = [
   Switch,
   Radio,
   Checklist,
-  Field
+  Field  
 ]
 
 // 提供plugins的install方法
@@ -39,6 +40,7 @@ const install = function (Vue, opt = {}) {
 
   // js componet
   Vue.$toast = Vue.prototype.$toast = Toast
+  Vue.$indicator = Vue.prototype.$indicator = Indicator
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

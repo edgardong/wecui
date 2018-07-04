@@ -54,6 +54,7 @@ let WECToast = (options = {}) => {
   instance.message = typeof options === 'string' ? options : options.message;
   instance.position = options.position || 'middle';
   instance.iconClass = options.iconClass;
+  instance.iconColor = options.iconColor;
   document.body.appendChild(instance.$el);
 
   Vue.nextTick(() => {

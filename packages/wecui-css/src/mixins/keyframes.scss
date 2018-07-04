@@ -9,3 +9,13 @@
     transform: scale(1);
   }
 }
+
+// 360度旋转
+@keyframes rotating {
+  from {
+    transform: rotate(0)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}

@@ -109,6 +109,44 @@ export default {
 </script>`
   },
   {
+    filename: `${componentname}/src/main.js`,
+    content: `import Vue from 'vue';
+  import Main from './main.vue';
+  
+  let ${ComponentName}Construactor = Vue.extend(Main);
+
+  let ${componentname}Pool = [];
+
+  // 获取实例
+  let getAnInstance = () => {
+
+    if (${componentname}Pool.length > 0) {
+      ${componentname}Pool.splice(0, 1);
+      return ${componentname}rPool[0];
+    }
+
+    return new ${ComponentName}Construactor({
+      el: document.createElement('div')
+    })
+  }
+
+  // 关闭
+  WEC${ComponentName}.prototype.close = function () {
+    setAnInstance(this);
+  }
+  
+  let WEC${ComponentName} = () => {
+    let instance = getAnInstance();
+
+    Vue.nextTick(() => {
+      instance.visiable = true;
+    })
+  }
+  
+  export default WEC${ComponentName};
+  `
+  },
+  {
     filename: `wecui-css/src/${componentname}.scss`,
     content: `@import './common/var.scss';
 @import './mixins/function';
@@ -278,7 +316,7 @@ ComponentNames.forEach(name => {
     package: name
   }));
 
-  if (['Toast', 'Loading', 'MessageBox', 'Notification', 'Message'].indexOf(componentName) === -1) {
+  if (['Toast', 'Indicator', 'Loading', 'MessageBox', 'Actionsheet', 'Popup', 'Notification', 'Message'].indexOf(componentName) === -1) {
     installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
       name: componentName,
       component: name

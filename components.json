@@ -12,5 +12,6 @@
   "radio": "./packages/radio/index.js",
   "checklist": "./packages/checklist/index.js",
   "field": "./packages/field/index.js",
-  "toast": "./packages/toast/index.js"
+  "toast": "./packages/toast/index.js",
+  "indicator": "./packages/indicator/index.js"
 }

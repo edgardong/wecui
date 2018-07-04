@@ -87,16 +87,16 @@
           "isOpen": false,
           "list": [
             {
-              "path": "/button",
-              "title": "JS组件",
-              "name": "jscomponents",
-              "component": "js"
-            },
-            {
               "path": "/toast",
               "title": "Toast 提示框",
               "name": "toast",
               "component": "/toast"
+            },
+            {
+              "path": "/indicator",
+              "title": "Indicator 提示框",
+              "name": "indicator",
+              "component": "/indicator"
             }
           ]
         }
