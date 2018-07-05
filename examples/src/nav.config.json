@@ -49,6 +49,12 @@
               "title": "Search 搜索",
               "name": "search",
               "component": "/search"
+            },
+            {
+              "path": "/spinner",
+              "title": "Spinner 加载动画",
+              "name": "spinner",
+              "component": "/spinner"
             }
           ]
         },

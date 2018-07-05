@@ -13,5 +13,6 @@
   "checklist": "./packages/checklist/index.js",
   "field": "./packages/field/index.js",
   "toast": "./packages/toast/index.js",
-  "indicator": "./packages/indicator/index.js"
+  "indicator": "./packages/indicator/index.js",
+  "spinner": "./packages/spinner/index.js"
 }

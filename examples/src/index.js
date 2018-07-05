@@ -5,7 +5,6 @@ import isMobile from './is-mobile'
 import 'packages/wecui-css/src/index.scss'
 import '../assets/docs.scss'
 import wecui from '../../src/index.js'
-
 import registerRoute from './router.config'
 import navConfig from './nav.config'
 

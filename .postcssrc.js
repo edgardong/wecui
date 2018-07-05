@@ -5,8 +5,6 @@ module.exports = {
     "postcss-import": {},
     "postcss-salad": require('./salad.config.json'),
     "postcss-url": {},
-    "precss": {},
-    // to edit target browsers: use "browserslist" field in package.json
-    "autoprefixer": {}
+    "precss": {}    
   }
 }

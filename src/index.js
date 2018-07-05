@@ -14,6 +14,7 @@ import Checklist from '../packages/checklist/index.js'
 import Field from '../packages/field/index.js'
 import Toast from '../packages/toast/index.js'
 import Indicator from '../packages/indicator/index.js'
+import Spinner from '../packages/spinner/index.js'
 
 const components = [
   Button,
@@ -28,7 +29,8 @@ const components = [
   Switch,
   Radio,
   Checklist,
-  Field  
+  Field,
+  Spinner
 ]
 
 // 提供plugins的install方法
