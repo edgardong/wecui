@@ -41,6 +41,8 @@ export default {
     border-radius: 100%;
     size: 100%;
     position: absolute;
+    left: 0;
+    top: 0;
     &::before {
       content: " ";
       display: block;
