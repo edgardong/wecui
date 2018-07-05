@@ -103,6 +103,12 @@
               "title": "Indicator 提示框",
               "name": "indicator",
               "component": "/indicator"
+            },
+            {
+              "path": "/message-box",
+              "title": "MessageBox 弹出式提示框",
+              "name": "message-box",
+              "component": "/message-box"
             }
           ]
         }

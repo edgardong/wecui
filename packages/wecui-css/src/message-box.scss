@@ -1,0 +1,34 @@
+@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+@include b(messagebox) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include e(dialog) {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    border-radius: $--border-radius-base;
+    background-color: $--color-white;
+    @include m(title) {
+      font-weight: 700;
+      padding: 15px 0 0;
+    }
+    @include m(message) {
+      padding: 10px 20px 15px;
+      border-bottom: 1px solid #ddd;
+      min-height: 36px;
+      position: relative;
+      color: #999;
+      line-height: 36px;
+    }
+  }
+}

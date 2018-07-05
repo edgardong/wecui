@@ -14,5 +14,6 @@
   "field": "./packages/field/index.js",
   "toast": "./packages/toast/index.js",
   "indicator": "./packages/indicator/index.js",
-  "spinner": "./packages/spinner/index.js"
+  "spinner": "./packages/spinner/index.js",
+  "message-box": "./packages/message-box/index.js"
 }

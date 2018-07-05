@@ -15,6 +15,7 @@ import Field from '../packages/field/index.js'
 import Toast from '../packages/toast/index.js'
 import Indicator from '../packages/indicator/index.js'
 import Spinner from '../packages/spinner/index.js'
+import MessageBox from '../packages/message-box/index.js'
 
 const components = [
   Button,
@@ -43,6 +44,7 @@ const install = function (Vue, opt = {}) {
   // js componet
   Vue.$toast = Vue.prototype.$toast = Toast
   Vue.$indicator = Vue.prototype.$indicator = Indicator
+  Vue.$messagebox = Vue.prototype.$messagebox = MessageBox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

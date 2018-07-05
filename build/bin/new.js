@@ -115,14 +115,15 @@ export default {
   
   let ${ComponentName}Construactor = Vue.extend(Main);
 
-  let ${componentname}Pool = [];
+  let ${ComponentName}Pool = [];
 
   // 获取实例
   let getAnInstance = () => {
 
-    if (${componentname}Pool.length > 0) {
-      ${componentname}Pool.splice(0, 1);
-      return ${componentname}rPool[0];
+    if (${ComponentName}Pool.length > 0) {
+      let instance = ${ComponentName}Pool[0]
+      ${ComponentName}Pool.splice(0, 1);
+      return instance;
     }
 
     return new ${ComponentName}Construactor({
@@ -131,11 +132,11 @@ export default {
   }
 
   // 关闭
-  WEC${ComponentName}.prototype.close = function () {
+  WEC${ComponentName}Construactor.prototype.close = function () {
     setAnInstance(this);
   }
   
-  let WEC${ComponentName} = () => {
+  let WEC${ComponentName} = (options={}) => {
     let instance = getAnInstance();
 
     Vue.nextTick(() => {
