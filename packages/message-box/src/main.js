@@ -128,6 +128,8 @@ let WECMessageBox = {
   },
   close: () => {
     if (instance) {
+      // inputValue
+      currentMsg = null;
       instance.visiable = false;
       setAnInstance(instance);
     }

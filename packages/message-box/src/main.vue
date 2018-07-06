@@ -6,7 +6,7 @@
         <div class="wec-messagebox__dialog--content">
           <div class="wec-messagebox__dialog--message" v-if="type!='prompt'" v-html="message"></div>
           <div class="wec-messagebox__dialog--input" v-if="type=='prompt'">
-            <input :type="inputType" v-model="inputValue">
+            <input :type="inputType" v-model="inputValue" ref="input">
             <div class="wec-messagebox__dialog--errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
           </div>
         </div>
@@ -19,43 +19,58 @@
   </transition>
 </template>
 <script>
-export default {
-  name: "wec-message-box",
-  props: {
-    title: {
-      type: String
+  export default {
+    name: "wec-message-box",
+    props: {
+      title: {
+        type: String
+      },
+      okText: {
+        type: String
+      },
+      message: {
+        type: String
+      },
+      visiable: {
+        type: Boolean
+      }
     },
-    okText: {
-      type: String
+    data() {
+      return {
+        callback: null,
+        cancelText: "",
+        type: "",
+        inputType: "",
+        inputValue: "",
+        editorErrorMessage: ""
+      };
     },
-    message: {
-      type: String
-    },
-    visiable: {
-      type: Boolean
-    }
-  },
-  data() {
-    return {
-      callback: null,
-      cancelText: "",
-      type: "",
-      inputType: "",
-      inputValue: "",
-      editorErrorMessage: ""
-    };
-  },
-  methods: {
-    actionHandler(action) {
-      let callback = this.callback;
-      this.visiable = false;
+    methods: {
+      actionHandler(action) {
+        let callback = this.callback;
+        this.visiable = false;
 
-      this.type === "prompt"
-        ? callback(action, this.inputValue)
-        : callback(action);
+        this.type === "prompt"
+          ? callback(action, this.inputValue)
+          : callback(action);
+
+        this.inputValue = "";
+      }
+    },
+    computed: {},
+    mounted() {},
+    watch: {
+      visiable(val) {
+        if (val) {
+          if (this.type == "prompt") {
+            setTimeout(() => {
+              if (this.$refs.input) {
+                this.$refs.input.focus();
+              }
+            }, 500);
+          }
+        }
+      }
     }
-  },
-  computed: {},
-  mounted() {}
-};
+  };
 </script>

@@ -50,7 +50,7 @@ export default {
     },
     clickHandler3() {
       let option = {
-        message: "确定执行此操作？",
+        title: "确定执行此操作？",
         okText: "好的"
       };
 
