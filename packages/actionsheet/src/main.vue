@@ -9,7 +9,7 @@
     </div>
   </div>  
 </transition>
-
+<!--遮罩层-->
 <div class="wec-modal" v-show="currentValue" @click.stop="modalClickHandler"></div>
 
 </div>

@@ -15,8 +15,9 @@ import Field from '../packages/field/index.js'
 import Toast from '../packages/toast/index.js'
 import Indicator from '../packages/indicator/index.js'
 import Spinner from '../packages/spinner/index.js'
-import MessageBox from '../packages/message-box/index.js'
+import Messagebox from '../packages/message-box/index.js'
 import Actionsheet from '../packages/actionsheet/index.js'
+import Popup from '../packages/popup/index.js'
 
 const components = [
   Button,
@@ -33,7 +34,8 @@ const components = [
   Checklist,
   Field,
   Spinner,
-  Actionsheet
+  Actionsheet,
+  Popup
 ]
 
 // 提供plugins的install方法
@@ -46,7 +48,7 @@ const install = function (Vue, opt = {}) {
   // js componet
   Vue.$toast = Vue.prototype.$toast = Toast
   Vue.$indicator = Vue.prototype.$indicator = Indicator
-  Vue.$messagebox = Vue.prototype.$messagebox = MessageBox
+  Vue.$messagebox = Vue.prototype.$messagebox = Messagebox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

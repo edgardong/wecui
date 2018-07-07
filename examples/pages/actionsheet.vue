@@ -3,11 +3,11 @@
   <section class="demo-actionsheet">
     <wec-header :show-back="true" title="Actionsheet 操作表"></wec-header>
 
-    <wec-button @click="visiable1=true"  size="block" class="flex1" type="info">点击弹出 Indicator</wec-button>
-    <wec-button @click="visiable2=true"  size="block" class="flex1" type="info">可配置 spinner</wec-button>
+    <wec-button @click="visiable1=true"  size="block" class="flex1" type="info">点击上拉 action sheet</wec-button>
+    <wec-button @click="visiable2=true"  size="block" class="flex1" type="info">不带取消按钮的 action sheet</wec-button>
 
     <wec-actionsheet :actions="actions" :on-modal-close="false" cancel-text="还没想好呢" v-model="visiable1"></wec-actionsheet>
-    <wec-actionsheet :actions="actions2" :cancel-text="cancelText" v-model="visiable2"></wec-actionsheet>
+    <wec-actionsheet :actions="actions2" cancel-text="" v-model="visiable2"></wec-actionsheet>
   </section>
 </template>
 <script>

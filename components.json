@@ -16,5 +16,6 @@
   "indicator": "./packages/indicator/index.js",
   "spinner": "./packages/spinner/index.js",
   "messagebox": "./packages/message-box/index.js",
-  "actionsheet": "./packages/actionsheet/index.js"
+  "actionsheet": "./packages/actionsheet/index.js",
+  "popup": "./packages/popup/index.js"
 }

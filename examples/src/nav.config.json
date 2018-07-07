@@ -115,6 +115,12 @@
               "title": "Actionsheet 操作表",
               "name": "actionsheet",
               "component": "/actionsheet"
+            },
+            {
+              "path": "/popup",
+              "title": "Popup 弹出框",
+              "name": "popup",
+              "component": "/popup"
             }
           ]
         }
