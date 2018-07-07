@@ -16,6 +16,7 @@ import Toast from '../packages/toast/index.js'
 import Indicator from '../packages/indicator/index.js'
 import Spinner from '../packages/spinner/index.js'
 import MessageBox from '../packages/message-box/index.js'
+import Actionsheet from '../packages/actionsheet/index.js'
 
 const components = [
   Button,
@@ -31,7 +32,8 @@ const components = [
   Radio,
   Checklist,
   Field,
-  Spinner
+  Spinner,
+  Actionsheet
 ]
 
 // 提供plugins的install方法

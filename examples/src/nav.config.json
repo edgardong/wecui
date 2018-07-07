@@ -109,6 +109,12 @@
               "title": "MessageBox 弹出式提示框",
               "name": "message-box",
               "component": "/message-box"
+            },
+            {
+              "path": "/actionsheet",
+              "title": "Actionsheet 操作表",
+              "name": "actionsheet",
+              "component": "/actionsheet"
             }
           ]
         }

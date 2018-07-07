@@ -15,5 +15,6 @@
   "toast": "./packages/toast/index.js",
   "indicator": "./packages/indicator/index.js",
   "spinner": "./packages/spinner/index.js",
-  "message-box": "./packages/message-box/index.js"
+  "messagebox": "./packages/message-box/index.js",
+  "actionsheet": "./packages/actionsheet/index.js"
 }

@@ -132,7 +132,7 @@ export default {
   }
 
   // 关闭
-  WEC${ComponentName}Construactor.prototype.close = function () {
+  ${ComponentName}Construactor.prototype.close = function () {
     setAnInstance(this);
   }
   
@@ -317,7 +317,7 @@ ComponentNames.forEach(name => {
     package: name
   }));
 
-  if (['Toast', 'Indicator', 'Loading', 'MessageBox', 'Actionsheet', 'Popup', 'Notification', 'Message'].indexOf(componentName) === -1) {
+  if (['Toast', 'Indicator', 'Loading', 'MessageBox', 'Popup', 'Notification', 'Message'].indexOf(componentName) === -1) {
     installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
       name: componentName,
       component: name
