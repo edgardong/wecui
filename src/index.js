@@ -15,9 +15,11 @@ import Field from '../packages/field/index.js'
 import Toast from '../packages/toast/index.js'
 import Indicator from '../packages/indicator/index.js'
 import Spinner from '../packages/spinner/index.js'
-import Messagebox from '../packages/message-box/index.js'
+import MessageBox from '../packages/message-box/index.js'
 import Actionsheet from '../packages/actionsheet/index.js'
 import Popup from '../packages/popup/index.js'
+import Swipe from '../packages/swipe/index.js'
+import SwipeItem from '../packages/swipe-item/index.js'
 
 const components = [
   Button,
@@ -35,7 +37,9 @@ const components = [
   Field,
   Spinner,
   Actionsheet,
-  Popup
+  Popup,
+  Swipe,
+  SwipeItem
 ]
 
 // 提供plugins的install方法
@@ -48,7 +52,7 @@ const install = function (Vue, opt = {}) {
   // js componet
   Vue.$toast = Vue.prototype.$toast = Toast
   Vue.$indicator = Vue.prototype.$indicator = Indicator
-  Vue.$messagebox = Vue.prototype.$messagebox = Messagebox
+  Vue.$messagebox = Vue.prototype.$messageobx = MessageBox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

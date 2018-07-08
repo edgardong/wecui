@@ -31,6 +31,7 @@ const fileSave = require('file-save')
 const uppercamelcase = require('uppercamelcase')
 const componentname = process.argv[3]
 const chineseName = process.argv[4] || componentname
+const needJsFiles = process.argv[5] ? process.argv[5] == 1 : false;
 const ComponentName = uppercamelcase(componentname)
 const {
   version
@@ -204,9 +205,14 @@ console.log('----------------------------')
 
 // 创建组件 package 文件
 packagesFiles.forEach(file => {
-  fileSave(path.join(packagesPath, file.filename))
-    .write(file.content, 'utf8')
-    .end('\n')
+  // 如果不需要创建JS模板，则不添加JS文件
+  if (!needJsFiles && file.filename === `${componentname}/src/main.js`) {
+    console.log('packages 中不创建main.js模板');
+  } else {
+    fileSave(path.join(packagesPath, file.filename))
+      .write(file.content, 'utf8')
+      .end('\n')
+  }
 })
 
 console.log('')
@@ -317,14 +323,14 @@ ComponentNames.forEach(name => {
     package: name
   }));
 
-  if (['Toast', 'Indicator', 'Loading', 'MessageBox', 'Notification', 'Message'].indexOf(componentName) === -1) {
+  if (['toast', 'indicator', 'messagebox'].indexOf(ComponentName.toLowerCase()) === -1) {
     installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
       name: componentName,
       component: name
     }));
   } else {
     jsComponentTemplate.push(render(JS_COMPONENT_INSTALL, {
-      name: componentName,
+      name: componentName.replace(/-/g, ''),
       package: name
     }))
   }

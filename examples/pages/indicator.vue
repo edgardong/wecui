@@ -9,74 +9,73 @@
   </section>
 </template>
 <script>
-export default {
-  props: {},
-  data() {
-    return {};
-  },
-  methods: {
-    clickHandler() {
-      let option = {
-        // iconClass: "loading",
-        // text:'测试看看',
-        // spinnerClass: "fading",
-        // spinnerClass: "double",
-        // spinnerClass: "triple"
-        spinnerClass: "snake"
-      };
-
-      this.$indicator.open(option);
-
-      setTimeout(() => {
-        this.$indicator.close();
-      }, 2000);
+  export default {
+    props: {},
+    data() {
+      return {};
     },
-    clickHandler2() {
-      let option = {
-        spinnerClass: "fading"
-      };
+    methods: {
+      clickHandler() {
+        let option = {
+          // iconClass: "loading",
+          // text:'测试看看',
+          // spinnerClass: "fading",
+          // spinnerClass: "double",
+          // spinnerClass: "triple"
+          spinnerClass: "snake"
+        };
 
-      this.$indicator.open(option);
-      setTimeout(() => {
-        this.$indicator.close();
-      }, 2000);
+        this.$indicator.open(option);
+
+        setTimeout(() => {
+          this.$indicator.close();
+        }, 2000);
+      },
+      clickHandler2() {
+        let option = {
+          spinnerClass: "fading"
+        };
+
+        this.$indicator.open(option);
+        setTimeout(() => {
+          this.$indicator.close();
+        }, 2000);
+      },
+      clickHandler3() {
+        let option = {
+          spinnerClass: "fading",
+          text: "拼命加载中..."
+        };
+
+        this.$indicator.open(option);
+        setTimeout(() => {
+          this.$indicator.close();
+        }, 2000);
+      }
     },
-    clickHandler3() {
-      let option = {
-        spinnerClass: "fading",
-        text: "拼命加载中..."
-      };
-
-      this.$indicator.open(option);
-      setTimeout(() => {
-        this.$indicator.close();
-      }, 2000);
-    }
-  },
-  computed: {},
-  mounted() {}
-};
+    computed: {},
+    mounted() {}
+  };
 </script>
 <style lang="scss" scoped>
-.demo-indicator {
-  padding-top: 46px;
-  margin: 0 20px;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  /*水平居中*/
-  align-items: center;
-  flex-direction: column;
-  .flex1 {
-    margin: 10px 0;
-    color: #656b79;
-    border-color: #f6f8fa;
-    background-color: #f6f8fa;
+  .demo-indicator {
+    padding-top: 46px;
+    margin: 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    /*水平居中*/
+    align-items: center;
+    flex-direction: column;
+    .flex1 {
+      margin: 10px 0;
+      color: #656b79;
+      border-color: #f6f8fa;
+      background-color: #f6f8fa;
+    }
   }
-}
 </style>

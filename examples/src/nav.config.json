@@ -121,6 +121,12 @@
               "title": "Popup 弹出框",
               "name": "popup",
               "component": "/popup"
+            },
+            {
+              "path": "/swipe",
+              "title": "Swipe 轮播图",
+              "name": "swipe",
+              "component": "/swipe"
             }
           ]
         }
