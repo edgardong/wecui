@@ -4,7 +4,7 @@
     <wec-header :show-back="true" title="Swipe 轮播图"></wec-header>
 
     <h2>基础用法</h2>
-    <wec-swipe>
+    <wec-swipe @change="changeHadler">
       <wec-swipe-item class="slide1">1</wec-swipe-item>
       <wec-swipe-item class="slide2">2</wec-swipe-item>
       <wec-swipe-item class="slide3">3</wec-swipe-item>
@@ -43,7 +43,11 @@
     data() {
       return {};
     },
-    methods: {},
+    methods: {
+      changeHadler(index) {
+        // console.log("currentIndex: " + index);
+      }
+    },
     computed: {},
     mounted() {}
   };
