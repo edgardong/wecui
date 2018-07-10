@@ -49,8 +49,20 @@
     },
     methods: {
       changePage(direction) {
-        let oldIndex = this.currentIndex;
-        // removeClass(this.pages[this.currentIndex], "is-active");
+        let currentIndex = this.currentIndex;
+        let preIndex, nextIndex, prePage, nextPage, currentPage, pageWidth;
+        let pages = this.pages;
+        prePage = pages[currentIndex - 1];
+        currentPage = pages[currentIndex];
+        nextPage = pages[nextIndex];
+
+        if (!prePage) {
+          prePage = pages[0];
+        }
+
+        if (!nextPage) {
+          nextPage = pages[pages.length - 1];
+        }
 
         // 向左移动
         if (direction === "left") {
@@ -61,16 +73,16 @@
           }
         } else if (direction === "right") {
           // 向右移动
-          if (this.currentIndex < this.childLength - 1) {
-            this.currentIndex++;
-          } else {
-            this.currentIndex = 0;
-          }
+          // if (this.currentIndex < this.childLength - 1) {
+          //   this.currentIndex++;
+          // } else {
+          //   this.currentIndex = 0;
+          // }
         }
+        removeClass(this.pages[preIndex], "is-active");
         addClass(this.pages[this.currentIndex], "is-active");
-        setTimeout(() => {
-          removeClass(this.pages[oldIndex], "is-active");
-        }, 3000);
+
+        this.currentIndex = nextIndex;
       },
       // 添加触摸监听事件
       addTouchEventListener(element) {
@@ -135,8 +147,6 @@
         this.pages = this.$refs.wecswipewrapper.children;
         this.childLength = this.pages.length;
 
-        // 给默认的页面赋值
-        addClass(this.pages[this.currentIndex], "is-active");
         // 设置定时器
         if (!this.timer && this.duration > 0 && this.childLength > 1) {
           _this.timer = setInterval(() => {
