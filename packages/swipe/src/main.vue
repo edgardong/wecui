@@ -47,9 +47,9 @@ export default {
     }
   },
   methods: {
+    /**轮播图跳转 */
     changePage(direction) {
       let oldIndex = this.currentIndex;
-      // removeClass(this.pages[this.currentIndex], "is-active");
 
       // 向左移动
       if (direction === "left") {

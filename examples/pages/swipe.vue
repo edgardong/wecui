@@ -10,8 +10,8 @@
       <wec-swipe-item class="slide3">3</wec-swipe-item>
     </wec-swipe>
 
-    <h2>隐藏indicators</h2>
-    <wec-swipe :indicators="false">
+    <h2  v-if="false">隐藏indicators</h2>
+    <wec-swipe :indicators="false" v-if="false">
       <wec-swipe-item class="slide1">1</wec-swipe-item>
       <wec-swipe-item class="slide2">2</wec-swipe-item>
       <wec-swipe-item class="slide3">3</wec-swipe-item>
@@ -24,8 +24,8 @@
       <wec-swipe-item class="slide3">3</wec-swipe-item>
     </wec-swipe>
 
-    <h2>默认显示页</h2>
-     <wec-swipe :init-index="2">
+    <h2  v-if="false">默认显示页</h2>
+     <wec-swipe :init-index="2"  v-if="false">
       <wec-swipe-item class="slide1">1</wec-swipe-item>
       <wec-swipe-item class="slide2">2</wec-swipe-item>
       <wec-swipe-item class="slide3">3</wec-swipe-item>
