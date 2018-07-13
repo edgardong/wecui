@@ -8,6 +8,7 @@
       <wec-swipe-item class="slide1">1</wec-swipe-item>
       <wec-swipe-item class="slide2">2</wec-swipe-item>
       <wec-swipe-item class="slide3">3</wec-swipe-item>
+      <wec-swipe-item class="slide4">4</wec-swipe-item>
     </wec-swipe>
 
     <h2  v-if="false">隐藏indicators</h2>
@@ -74,5 +75,10 @@
       background-color: #ff2d4b;
       color: #fff;
     }
+    .slide4 {
+      background-color: yellowgreen;
+      color: #fff;
+    }
+    
   }
 </style>

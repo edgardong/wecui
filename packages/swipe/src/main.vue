@@ -49,8 +49,33 @@ export default {
   },
   methods: {
     translate(element, offset, speed, callback) {
-      element.style.webkitTransition = "";
-      element.style.webkitTransform = `translate3d(${offset}px, 0, 0)`;
+      if (speed) {
+        this.animating = true;
+        element.style.webkitTransition =
+          "-webkit-transform " + speed + "ms ease-in-out";
+        setTimeout(() => {
+          element.style.webkitTransform = `translate3d(${offset}px, 0, 0)`;
+        }, 50);
+
+        var called = false;
+
+        var transitionEndCallback = () => {
+          if (called) return;
+          called = true;
+          this.animating = false;
+          element.style.webkitTransition = "";
+          element.style.webkitTransform = "";
+          if (callback) {
+            callback.apply(this, arguments);
+          }
+        };
+
+        once(element, "webkitTransitionEnd", transitionEndCallback);
+        setTimeout(transitionEndCallback, speed + 100);
+      } else {
+        element.style.webkitTransition = "";
+        element.style.webkitTransform = `translate3d(${offset}px, 0, 0)`;
+      }
     },
 
     changePage(direction) {
@@ -109,18 +134,29 @@ export default {
       removeClass(prePage, "is-active");
       addClass(currentPage, "is-active");
 
-      console.log("newIndex..." + newIndex);
-      this.currentIndex = newIndex;
+      // console.log("newIndex..." + newIndex);
+      // this.currentIndex = newIndex;
 
-      // let newIndex = 0;
-      // if (currentIndex >= pages.length - 1) {
-      //   newIndex = 0;
-      // } else {
-      //   newIndex++;
-      // }
-      // setTimeout(() => {
-      //   this.currentIndex = newIndex;
-      // }, 50);
+      // 回调方法
+      let callback = () => {
+        if (newIndex !== undefined) {
+          var newPage = this.$children[newIndex].$el;
+          removeClass(oldPage, "is-active");
+          addClass(newPage, "is-active");
+
+          this.currentIndex = newIndex;
+        }
+      };
+
+      // 开始执行动画
+      setTimeout(() => {
+        if (direction === "right") {
+          this.translate(currentPage, -pageWidth, speed, callback);
+          if (nextPage) {
+            this.translate(nextPage, 0, speed);
+          }
+        }
+      }, 10);
     },
     // 添加触摸监听事件
     addTouchEventListener(element) {
