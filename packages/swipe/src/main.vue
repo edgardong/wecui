@@ -100,17 +100,27 @@
         // 如果上一页不存在，则index=0, 上一页为最后一页
         if (!prePage) {
           prePage = pages[pages.length - 1];
-          preIndex = pages.length - 1;
-        } else {
-          preIndex = currentIndex - 1;
         }
 
         // 如果没有下一页，则index = pages.length; 下一页为第一页
         if (!nextPage) {
           nextPage = pages[0];
-          nextIndex = 0;
-        } else {
-          nextIndex = currentIndex + 1;
+        }
+
+        if (direction == "left") {
+          // 如果没有下一页，则index = pages.length; 下一页为第一页
+          if (currentIndex <= 0) {
+            nextIndex = pages.length - 1;
+          } else {
+            nextIndex = currentIndex - 1;
+          }
+        } else if (direction == "right") {
+          // 如果上一页不存在，则index=0, 上一页为最后一页
+          if (currentIndex >= pages.length - 1) {
+            nextIndex = 0;
+          } else {
+            nextIndex = currentIndex + 1;
+          }
         }
 
         // 把前一张移动到左侧
@@ -131,7 +141,7 @@
           if (newIndex !== undefined) {
             var newPage = this.$children[newIndex].$el;
             removeClass(currentPage, "is-active");
-            addClass(nextPage, "is-active");
+            addClass(newPage, "is-active");
 
             this.currentIndex = newIndex;
           }
@@ -151,6 +161,11 @@
             this.translate(currentPage, -pageWidth, speed, callback);
             if (nextPage) {
               this.translate(nextPage, 0, speed);
+            }
+          } else if (direction === "left") {
+            this.translate(currentPage, pageWidth, speed, callback);
+            if (prePage) {
+              this.translate(prePage, 0, speed);
             }
           }
         }, 10);
@@ -193,6 +208,9 @@
 
           _this.draging = false;
 
+          // 重新初始化定时器
+          _this.initTimer();
+
           moveObj.moveX = moveObj.endX - moveObj.startX;
           moveObj.moveY = moveObj.endY - moveObj.startY;
 
@@ -216,30 +234,34 @@
         children.forEach((child, index) => {
           _this.pages.push(child.$el);
 
-          removeClass(child.$el, 'is-active');
+          removeClass(child.$el, "is-active");
 
           if (index === _this.currentIndex) {
             addClass(child.$el, "is-active");
+          }
+        });
+      },
+      initTimer() {
+        let _this = this;
+        this.$nextTick(() => {
+          this.childLength = this.pages.length;
+
+          // 设置定时器
+          if (!this.timer && this.duration > 0 && this.childLength > 1) {
+            _this.timer = setInterval(() => {
+              if (!_this.draging) {
+                _this.changePage("right"); //默认向右移动
+              }
+            }, this.duration);
           }
         });
       }
     },
     computed: {},
     mounted() {
-      let _this = this;
       this.reInitPages();
-      this.$nextTick(() => {
-        this.childLength = this.pages.length;
 
-        // 设置定时器
-        if (!this.timer && this.duration > 0 && this.childLength > 1) {
-          _this.timer = setInterval(() => {
-            if (!_this.draging) {
-              _this.changePage("right"); //默认向右移动
-            }
-          }, this.duration);
-        }
-      });
+      this.initTimer();
 
       // 监听鼠标的移动事件
       this.addTouchEventListener(this.$el);
