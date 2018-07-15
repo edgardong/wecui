@@ -19,5 +19,6 @@
   "actionsheet": "./packages/actionsheet/index.js",
   "popup": "./packages/popup/index.js",
   "swipe": "./packages/swipe/index.js",
-  "swipe-item": "./packages/swipe-item/index.js"
+  "swipe-item": "./packages/swipe-item/index.js",
+  "range": "./packages/range/index.js"
 }

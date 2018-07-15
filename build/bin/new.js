@@ -323,7 +323,7 @@ ComponentNames.forEach(name => {
     package: name
   }));
 
-  if (['toast', 'indicator', 'messagebox'].indexOf(ComponentName.toLowerCase()) === -1) {
+  if (['Toast', 'Indicator', 'MessageBox'].indexOf(componentName) === -1) {
     installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
       name: componentName,
       component: name

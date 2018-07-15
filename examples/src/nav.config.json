@@ -127,6 +127,12 @@
               "title": "Swipe 轮播图",
               "name": "swipe",
               "component": "/swipe"
+            },
+            {
+              "path": "/range",
+              "title": "Range 滑动",
+              "name": "range",
+              "component": "/range"
             }
           ]
         }

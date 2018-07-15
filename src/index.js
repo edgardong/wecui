@@ -20,6 +20,7 @@ import Actionsheet from '../packages/actionsheet/index.js'
 import Popup from '../packages/popup/index.js'
 import Swipe from '../packages/swipe/index.js'
 import SwipeItem from '../packages/swipe-item/index.js'
+import Range from '../packages/range/index.js'
 
 const components = [
   Button,
@@ -39,7 +40,8 @@ const components = [
   Actionsheet,
   Popup,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  Range
 ]
 
 // 提供plugins的install方法
@@ -51,8 +53,8 @@ const install = function (Vue, opt = {}) {
 
   // js componet
   Vue.$toast = Vue.prototype.$toast = Toast
+  Vue.$messagebox = Vue.prototype.$messagebox = MessageBox
   Vue.$indicator = Vue.prototype.$indicator = Indicator
-  Vue.$messagebox = Vue.prototype.$messageobx = MessageBox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

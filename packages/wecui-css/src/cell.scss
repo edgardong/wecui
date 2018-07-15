@@ -13,17 +13,26 @@
     right: 0;
   }
   @include e(value) {
+    flex: 1;
     color: $--color-text-secondary;
     @include h(link) {
       margin-right: 10px;
     }
+    &.content {
+      flex: 3;
+    }
   }
   @include e (label) {
-    flex: 1;
     display: flex;
     align-items: center;
     .icon {
       padding-right: 4px;
+    }
+    &.content {
+      flex: 1;
+    }
+    &.nocontent {
+      flex: 0;
     }
     @include m(label) {
       flex: 1;
