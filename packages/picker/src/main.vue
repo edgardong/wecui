@@ -1,54 +1,84 @@
 <template>
-  <div class="wec-picker" v-show="visiable">
-    <div class="wec-picker__wrapper">
+  <div class="wec-picker" v-show="visiable && currentVisiable" @click="maskerHandler">
+    <div class="wec-picker__wrapper" @click.stop>
       <!-- 顶部操作区域 -->
       <div class="wec-picker__wrapper--toolbar">
-        <wec-button type="text">取消</wec-button>
+        <wec-button type="text" @click="cancelHandler">取消</wec-button>
         <span v-if="title">{{title}}</span>
-        <wec-button type="text">确定</wec-button>
+        <wec-button type="text" @click="sureHandler">确定</wec-button>
       </div>
       <!-- 选择区域 -->
-      <div class="wec-picker__wrapper--content">
+      <div class="wec-picker__wrapper--content" :style="{height:itemCount*itemHeight+'px'}">
         <div class="picker-wrapper">
-          <div class="picker-slot" :class="{'divider-item':slot.divider,'content-item': !slot.divider}" v-for="(slot,index) in slots" :key="index">
-            <!-- 内容滑块 -->
-            <div class="picker-slot--item" 
-              :class="{'picker-selected':values[index]==option || values[index]==option.label}" 
-              v-if="!slot.divider" v-for="(option,optionIndex) in slot.options" :key="optionIndex">
-              {{option.label||option}}
+          <div class="scroll-wrapper">
+            <div class="picker-slot" :class="{'divider-item':slot.divider,'content-item': !slot.divider}" v-for="(slot,index) in slots" :key="index">
+              <picker-item :slotObj="slot"></picker-item>
             </div>
-            <!-- 分隔符模块 -->
-            <div class="picker-slot--item" v-if="slot.divider">{{slot.content}}</div>
+            <div class="picker-slot--highlight" ref="highlight"></div>
           </div>
-          <div class="picker-slot--highlight"></div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {
-  name: "wec-picker",
-  props: {
-    visiable: {
-      type: Boolean,
-      default: true
+  import PickerItem from "./picker-item";
+  export default {
+    name: "wec-picker",
+    props: {
+      visiable: {
+        type: Boolean,
+        default: true
+      },
+      title: {
+        type: String
+      },
+      slots: {
+        type: Array,
+        required: true
+      },
+      onModalClose: {
+        type: Boolean,
+        default: true
+      },
+      itemCount: {
+        type: Number,
+        default: 5
+      },
+      itemHeight: {
+        type: Number,
+        default: 36
+      }
     },
-    title: {
-      type: String
+    data() {
+      return {
+        values: ["武汉", "", "南京"],
+        currentVisiable: this.visiable
+      };
     },
-    slots: {
-      type: Array,
-      required: true
+    methods: {
+      cancelHandler() {
+        this.currentVisiable = false;
+      },
+      sureHandler() {},
+      show() {
+        this.currentVisiable = true;
+      },
+      maskerHandler() {
+        if (!this.onModalClose) {
+          return;
+        }
+        this.currentVisiable = false;
+      }
+    },
+    computed: {},
+    mounted() {
+      let highlight = this.$refs.highlight;
+      let centerPosition = highlight.getBoundingClientRect();
+      console.log(centerPosition);
+    },
+    components: {
+      PickerItem
     }
-  },
-  data() {
-    return {
-      values: ['武汉','','南京']
-    };
-  },
-  methods: {},
-  computed: {},
-  mounted() {}
-};
+  };
 </script>
