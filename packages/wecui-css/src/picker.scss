@@ -1,0 +1,98 @@
+@import './common/var.scss';
+@import './mixins/function';
+@import './mixins/mixins';
+@include b(picker) {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include e(wrapper) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background-color: #fff;
+    @include m(toolbar) {
+      display: flex;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #eeeeee;
+      padding: 0 15px;
+    }
+    @include m(content) {
+      position: relative;
+      .picker-wrapper {
+        display: flex;
+        .picker-slot--highlight {
+          box-sizing: border-box;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          top: 50%;
+          height: 36px;
+          margin-top: -18px;
+          pointer-events: none;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: auto;
+            right: auto;
+            height: 1px;
+            width: 100%;
+            background-color: #eaeaea;
+            display: block;
+            z-index: 15;
+            transform: scaleY(.5);
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: auto;
+            top: auto;
+            height: 1px;
+            width: 100%;
+            background-color: #eaeaea;
+            display: block;
+            z-index: 15;
+            transform: scaleY(.5);
+          }
+        }
+        .picker-slot {
+          font-size: 18px;
+          overflow: hidden;
+          position: relative;
+          max-height: 100%;
+          text-align: center;
+          &.divider-item {
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          &.content-item {
+            flex: 1;
+          }
+          .picker-slot--item {
+            height: 36px;
+            line-height: 36px;
+            color: #707274;
+          }
+          .picker-selected {
+            color: #000;
+            transform: translateZ(0) rotateX(0);
+          }
+        }
+      }
+    }
+  }
+}

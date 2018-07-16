@@ -133,6 +133,12 @@
               "title": "Range 滑动",
               "name": "range",
               "component": "/range"
+            },
+            {
+              "path": "/picker",
+              "title": "Picker 选择器",
+              "name": "picker",
+              "component": "/picker"
             }
           ]
         }

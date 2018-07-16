@@ -21,6 +21,7 @@ import Popup from '../packages/popup/index.js'
 import Swipe from '../packages/swipe/index.js'
 import SwipeItem from '../packages/swipe-item/index.js'
 import Range from '../packages/range/index.js'
+import Picker from '../packages/picker/index.js'
 
 const components = [
   Button,
@@ -41,7 +42,8 @@ const components = [
   Popup,
   Swipe,
   SwipeItem,
-  Range
+  Range,
+  Picker
 ]
 
 // 提供plugins的install方法
@@ -53,8 +55,8 @@ const install = function (Vue, opt = {}) {
 
   // js componet
   Vue.$toast = Vue.prototype.$toast = Toast
-  Vue.$messagebox = Vue.prototype.$messagebox = MessageBox
   Vue.$indicator = Vue.prototype.$indicator = Indicator
+  Vue.$messagebox = Vue.prototype.$messagebox = MessageBox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
