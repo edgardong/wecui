@@ -26,6 +26,7 @@
     }
     @include m(content) {
       position: relative;
+      min-height: 180px;
       .picker-wrapper {
         display: flex;
         max-height: 100%;

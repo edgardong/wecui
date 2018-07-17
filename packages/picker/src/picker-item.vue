@@ -15,11 +15,19 @@
         type: Object,
         required: true
       },
+      itemHeight: {
+        type: Number,
+        default: 36
+      },
+      itemCount: {
+        type: Number,
+        default: 5
+      },
       value: {}
     },
     data() {
       return {
-        currentIndex: this.slotObj.defaultIndex || 0,
+        currentIndex: this.slotObj.defaultIndex || 0
       };
     },
     methods: {
@@ -49,8 +57,7 @@
         this.currentValue = value;
       }
     },
-    watch: {
-    },
+    watch: {},
     computed: {
       currentValue: {
         get() {
@@ -63,6 +70,7 @@
     },
     mounted() {
       let _this = this;
+      let offsetTopHeight = this.itemHeight * Math.floor(this.itemCount / 2);
       let drag = {};
       this.$nextTick(() => {
         let scroll = this.$refs.scrollwrapper;
@@ -70,12 +78,13 @@
           return;
         }
         // 默认平移到第一个选择项处
-        scroll.style.transform = "translate(0,72px)";
+        scroll.style.transform = `translate(0,${offsetTopHeight}px)`;
         // 获取默认选择的选项
         let pickerItems = scroll.querySelector(".picker-selected");
         // 把选项平移到中间的位置
         if (pickerItems) {
-          scroll.style.transform = `translate(0,${72 - pickerItems.offsetTop}px)`;
+          scroll.style.transform = `translate(0,${offsetTopHeight -
+            pickerItems.offsetTop}px)`;
           scroll.style.transition = `transform 0.5s ease-in-out`;
         }
 
@@ -94,22 +103,28 @@
           // 计算移动的距离
           let moveY = drag.endY - drag.startY;
           // 计算移动的个数
-          let moveIndex = Math.round(moveY / 36);
+          let moveIndex = Math.round(moveY / _this.itemHeight);
 
           // 计算顶部的滚动距离
-          let offsetTop = drag.scrollTop + moveIndex * 36;
+          let offsetTop = drag.scrollTop + moveIndex * _this.itemHeight;
 
           // 设置可以滚动的最大和最小距离
-          if (offsetTop <= 72 - (_this.slotObj.options.length - 1) * 36) {
-            offsetTop = 72 - (_this.slotObj.options.length - 1) * 36;
-          } else if (offsetTop >= 72) {
-            offsetTop = 72;
+          if (
+            offsetTop <=
+            offsetTopHeight -
+              (_this.slotObj.options.length - 1) * _this.itemHeight
+          ) {
+            offsetTop =
+              offsetTopHeight -
+              (_this.slotObj.options.length - 1) * _this.itemHeight;
+          } else if (offsetTop >= offsetTopHeight) {
+            offsetTop = offsetTopHeight;
           }
 
           scroll.style.transform = `translate(0,${offsetTop}px)`;
 
           scroll.addEventListener("transitionend", function(event) {
-            let newIndex = (72 - offsetTop) / 36;
+            let newIndex = (offsetTopHeight - offsetTop) / _this.itemHeight;
 
             // 设置当前索引
             _this.currentIndex = Math.max(

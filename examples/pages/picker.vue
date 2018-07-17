@@ -12,9 +12,9 @@
 
     <wec-button @click="openPickerHandler1" size="block" class="flex1" type="success"> 显示选择框1</wec-button>
 
-    <wec-picker ref="picker1" v-model="values1" @pickok="changeHandler1" title="选择方式" :slots="slots1"></wec-picker>
+    <wec-picker ref="picker1" :item-count="3" v-model="values1" @pickok="changeHandler1" title="选择方式" :slots="slots1"></wec-picker>
 
-    {{values1.join('')}}
+    {{values1.join(' · ')}}
   </section>
 </template>
 <script>
