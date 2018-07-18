@@ -139,6 +139,12 @@
               "title": "Picker 选择器",
               "name": "picker",
               "component": "/picker"
+            },
+            {
+              "path": "/datetime-picker",
+              "title": "DatetimePicker 时间选择器",
+              "name": "datetime-picker",
+              "component": "/datetime-picker"
             }
           ]
         }

@@ -22,6 +22,7 @@ import Swipe from '../packages/swipe/index.js'
 import SwipeItem from '../packages/swipe-item/index.js'
 import Range from '../packages/range/index.js'
 import Picker from '../packages/picker/index.js'
+import DatetimePicker from '../packages/datetime-picker/index.js'
 
 const components = [
   Button,
@@ -43,7 +44,8 @@ const components = [
   Swipe,
   SwipeItem,
   Range,
-  Picker
+  Picker,
+  DatetimePicker
 ]
 
 // 提供plugins的install方法

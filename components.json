@@ -21,5 +21,6 @@
   "swipe": "./packages/swipe/index.js",
   "swipe-item": "./packages/swipe-item/index.js",
   "range": "./packages/range/index.js",
-  "picker": "./packages/picker/index.js"
+  "picker": "./packages/picker/index.js",
+  "datetime-picker": "./packages/datetime-picker/index.js"
 }
