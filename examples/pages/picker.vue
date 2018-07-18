@@ -5,16 +5,15 @@
 
     <wec-button @click="openPickerHandler" size="block" class="flex1" type="success"> 显示选择框</wec-button>
 
-    <wec-picker ref="picker" v-model="values" @pickok="changeHandler" title="选择方式" :slots="slots"></wec-picker>
+    <wec-picker ref="picker" v-model="values" title="选择方式" :slots="slots"></wec-picker>
 
     {{values.join('')}}
-
 
     <wec-button @click="openPickerHandler1" size="block" class="flex1" type="success"> 显示选择框1</wec-button>
 
     <wec-picker ref="picker1" :item-count="3" v-model="values1" @pickok="changeHandler1" title="选择方式" :slots="slots1"></wec-picker>
 
-    {{values1.join(' · ')}}
+    {{(values1[0]&&values1[0].label||'') + ' * ' + values1[1]}}
   </section>
 </template>
 <script>
@@ -22,8 +21,8 @@
     props: {},
     data() {
       return {
-        values: ["襄阳", "广州"],
-        values1: ["武汉", "杭州"],
+        values: ["", "广州"],
+        values1: [null, "深圳"],
         slots: [
           {
             options: ["武汉", "襄阳", "苏州", "上海", "南漳", "淮南", "凤台"],
@@ -39,8 +38,19 @@
         ],
         slots1: [
           {
-            options: ["武汉", "襄阳", "苏州", "上海", "南漳", "淮南", "凤台"],
-            defaultIndex: 4
+            options: [
+              { label: "武汉", value: 1 },
+              { label: "襄阳", value: 2 },
+              { label: "苏州", value: 3 },
+              { label: "上海", value: 4 },
+              { label: "南漳", value: 5 },
+              { label: "淮南", value: 6 },
+              { label: "凤台", value: 7 },
+              { label: "九集", value: 8 }
+            ],
+            defaultIndex: 7,
+            labelKey: "label",
+            valueKey: "value"
           },
           {
             divider: true,
@@ -63,7 +73,8 @@
         this.$refs.picker1.show();
       },
       changeHandler1(picker, values) {
-        this.values = values;
+        console.log(values);
+        this.values1 = values;
       }
     },
     computed: {},

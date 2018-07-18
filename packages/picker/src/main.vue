@@ -71,6 +71,7 @@
       sureHandler() {
         // this.values1 = this.pickerValues;
         this.$emit("input", this.pickerValues.concat());
+        this.$emit("pickok",this, this.pickerValues.concat());
         this.currentVisiable = false;
         // this.$destroy();
       },
