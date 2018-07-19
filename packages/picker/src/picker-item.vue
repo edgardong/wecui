@@ -1,9 +1,7 @@
 <template>
   <div class="wec-pickerslot" ref="scrollwrapper">
     <!-- 内容滑块 -->
-    <div class="picker-slot--item" 
-    :class="{'picker-selected':(pickerObj && labelKey  &&currentValue? currentValue[labelKey]: currentValue) ==(pickerObj && labelKey? option[labelKey]: option)}"
-     v-if="!slotObj.divider" v-for="(option,optionIndex) in slotObj.options" :key="optionIndex">
+    <div class="picker-slot--item" :class="{'picker-selected':(pickerObj && labelKey  &&currentValue? currentValue[labelKey]: currentValue) ==(pickerObj && labelKey? option[labelKey]: option)}" v-if="!slotObj.divider" v-for="(option,optionIndex) in slotObj.options" :key="optionIndex">
       {{pickerObj && labelKey? option[labelKey]: option}}
     </div>
     <!-- 分隔符模块 -->
@@ -32,7 +30,8 @@
         pickerObj: this.slotObj.labelKey && this.slotObj.valueKey,
         labelKey: this.slotObj.labelKey,
         valueKey: this.slotObj.valueKey,
-        currentIndex: this.slotObj.defaultIndex || 0
+        currentIndex: this.slotObj.defaultIndex || 0,
+        tmpValue:''
       };
     },
     methods: {
@@ -62,13 +61,19 @@
         this.currentValue = value;
       }
     },
-    watch: {},
+    watch: {
+      currentValue(value) {
+        
+        // this.$emit("input", value);
+      }
+    },
     computed: {
       currentValue: {
         get() {
           return this.value;
         },
         set(value) {
+          // console.log(value)
           this.$emit("input", value);
         }
       }

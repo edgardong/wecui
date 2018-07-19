@@ -65,6 +65,9 @@
       getValues() {
         // return this.pickerValues.concat();
       },
+      setSlots(index, options) {
+        this.slots[index].options = options;
+      },
       cancelHandler() {
         this.currentVisiable = false;
       },
@@ -87,7 +90,7 @@
     },
     watch: {
       pickerValues(value) {
-        this.$emit("change", value[1]);
+        this.$emit("change", value);
       }
     },
     computed: {},
