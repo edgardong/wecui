@@ -1,6 +1,6 @@
 <template>
   <div class="wec-datetime-picker" v-if="visiable">
-    <wec-picker :slots="dateData" v-model="values" :title="title" ref="wecdatetimepickerpicker">
+    <wec-picker :slots="dateData" @pickok="sureHandler" @change="changeHandler" v-model="values" :title="title" ref="wecdatetimepickerpicker">
 
     </wec-picker>
   </div>
@@ -26,7 +26,8 @@
       return {
         visiable: false,
         dateData: [],
-        values: []
+        values: [],
+        monthPickers: this.getPickerMonths()
       };
     },
     methods: {
@@ -36,7 +37,7 @@
           this.$refs.wecdatetimepickerpicker.show();
         });
       },
-      initDateData() {
+      initDateData(year, month) {
         let _this = this;
         let currentValue = this.value || new Date();
         this.values[0] = currentValue.getFullYear();
@@ -50,12 +51,12 @@
         };
         this.dateData[0] = obj;
         let months = {
-          options: this.getPickerMonths()
+          options: this.monthPickers
         };
         this.dateData[1] = months;
 
         let date = {
-          options: this.getPickerDates()
+          options: this.getPickerDates(year, month)
         };
         this.dateData[2] = date;
       },
@@ -79,12 +80,35 @@
       getPickerMonths() {
         return this.getNumberArray(1, 12);
       },
-      /**获取选择的日期 */
-      getPickerDates() {
-        let year = this.values[0];
-        let month = this.values[1];
+      sureHandler(picker, value) {
+        if (this.type == "date") {
+          this.$emit("input", value.join("-"));
+        }
+      },
+      changeHandler(values) {
+        // this.initDateData(values[0], values[1]);
+      },
+      getPickerDates(syear, smonth) {
+        let endDate = 31;
+        let year = syear || this.values[0];
+        let month = smonth || this.values[1];
 
-        return this.getNumberArray(1, 31);
+        let TODAYS = [1, 3, 5, 7, 8, 10, 12];
+        let TTDAYS = [4, 6, 9, 11];
+        if (TODAYS.indexOf(month) !== -1) {
+          endDate = 31;
+        } else if (TTDAYS.indexOf(month) !== -1) {
+          endDate = 30;
+        } else {
+          if (year % 400 == 0 || (year % 4 == 0 && year % 100 !== 0)) {
+            endDate = 29;
+          } else {
+            endDate = 28;
+          }
+        }
+
+        let tmpArr = this.getNumberArray(1, endDate);
+        return tmpArr;
       }
     },
     computed: {
@@ -94,24 +118,19 @@
         },
         set(value) {
           this.$emit("input", value);
+          // console.log(value);
+          // this.initDateData();
         }
       }
     },
+    watch: {
+      // values: function(value) {
+      //   console.log(value);
+      //   this.initDateData();
+      // }
+    },
     mounted() {
-      switch (this.type) {
-        case "date":
-          this.initDateData();
-          break;
-        case "datetime":
-          this.initDateTimeData();
-          break;
-        case "month":
-          this.initMonthData();
-          break;
-        case "time":
-          this.initTimeData();
-          break;
-      }
+      this.initDateData();
     }
   };
 </script>

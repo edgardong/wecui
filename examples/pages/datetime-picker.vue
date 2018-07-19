@@ -2,25 +2,33 @@
 <template>
   <section class="demo-datetime-picker">
     <wec-header :show-back="true" title="DatetimePicker 时间选择器"></wec-header>
+    <!-- 日期选择器 -->
+    <wec-button @click="openPickerHandler" size="block" class="flex1" type="success">打开日期选择器</wec-button>
+    <wec-datetime-picker ref="datepicker" v-model="pickerDate" ></wec-datetime-picker>
+    <div>选择的日期： {{pickerDate}}</div> 
 
-    <wec-button @click="openPickerHandler" size="block" class="flex1" type="success">打开时间选择器</wec-button>
-
-    <wec-datetime-picker ref="datepicker"></wec-datetime-picker>
+    <!-- 日期时间选择器 -->
+    <wec-button @click="openPickerHandler1" size="block" class="flex1" type="success">打开日期时间选择器</wec-button>
+    <wec-datetime-picker ref="datepicker1" v-model="pickerDate1" ></wec-datetime-picker>
+    <div>选择的日期： {{pickerDate1}}</div> 
   </section>
 </template>
 <script>
   export default {
     props: {},
     data() {
-      return {};
+      return {
+        pickerDate:null,
+        pickerDate1:null
+      };
     },
     methods: {
       openPickerHandler() {
         this.$refs.datepicker.show();
       },
-      changeHandler(picker, values) {
-        this.values = values;
-      }
+      openPickerHandler1() {
+        this.$refs.datepicker1.show();
+      },
     },
     computed: {},
     mounted() {}
