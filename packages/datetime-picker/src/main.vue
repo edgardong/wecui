@@ -88,7 +88,7 @@
       changeHandler(values) {
         if (values[1] !== this.values[1]) {
 
-          // this.$refs.wecdatetimepickerpicker.setSlots(2,this.getPickerDates(values[0], values[1]));
+          this.$refs.wecdatetimepickerpicker.setSlots(2,this.getPickerDates(values[0], values[1]));
           // console.log(values);
           // this.initDateData(values[0], values[1]);
           // console.log(this.dateData[2])
@@ -98,7 +98,6 @@
             "options",
             this.getPickerDates(values[0], values[1])
           );
-          // console.log(this.dateData[2].options)
         }
       },
       getPickerDates(syear, smonth) {

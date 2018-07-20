@@ -67,6 +67,7 @@
       },
       setSlots(index, options) {
         this.slots[index].options = options;
+        // this.pickerValues[index] = 1;
       },
       cancelHandler() {
         this.currentVisiable = false;
@@ -90,6 +91,7 @@
     },
     watch: {
       pickerValues(value) {
+        // this.$emit("input", value);
         this.$emit("change", value);
       }
     },
