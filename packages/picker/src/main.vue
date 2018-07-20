@@ -12,7 +12,8 @@
         <div class="picker-wrapper">
           <div class="scroll-wrapper">
             <div class="picker-slot">
-              <picker-item :slotObj="slot" v-model="pickerValues[slot.slotIndex]" :class="{'divider-item':slot.divider,'content-item': !slot.divider}" v-for="(slot,index) in slots" :key="index"></picker-item>
+              <picker-item :slotObj="slot" ref="pickitem" v-model="pickerValues[slot.slotIndex]" :class="{'divider-item':slot.divider,'content-item': !slot.divider}" v-for="(slot,index) in slots" :key="index">
+              </picker-item>
               <!-- 中部高亮区域 -->
               <div class="picker-slot--highlight" ref="highlight"></div>
             </div>
@@ -52,14 +53,14 @@
     },
     data() {
       return {
-        pickerValues: [],
+        pickerValues: this.value.concat(),
         currentVisiable: false
       };
     },
     created() {
-      this.value.forEach((val, index) => {
-        this.pickerValues[index] = val;
-      });
+      // this.value.forEach((val, index) => {
+      //   this.pickerValues[index] = val;
+      // });
     },
     methods: {
       getValues() {
@@ -68,7 +69,12 @@
       setSlots(index, options) {
         this.slots[index].options = options;
       },
+      setValue(index, value) {
+        // console.log(this.$refs.pickitem)
+        this.$refs.pickitem[index].scrollToTop();
+      },
       cancelHandler() {
+        this.pickerValues = this.value.concat();
         this.currentVisiable = false;
       },
       sureHandler() {
@@ -89,8 +95,13 @@
       }
     },
     watch: {
-      pickerValues(value) {
-        this.$emit("change", value);
+      pickerValues(value, oldValue) {
+        console.log(value);
+        console.log(oldValue);
+        let tmpValue = value.concat()
+        if (tmpValue[2] !== 1) {
+          this.$emit("pickedchange", tmpValue);
+        }
       }
     },
     computed: {},

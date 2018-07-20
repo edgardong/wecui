@@ -1,7 +1,6 @@
 <template>
   <div class="wec-datetime-picker" v-if="visiable">
-    <wec-picker :slots="dateData" @pickok="sureHandler" @change="changeHandler" v-model="values" :title="title" ref="wecdatetimepickerpicker">
-
+    <wec-picker :slots="dateData" @pickok="sureHandler" @pickedchange="changeHandler" v-model="values" :title="title" ref="wecdatetimepickerpicker">
     </wec-picker>
   </div>
 </template>
@@ -84,22 +83,28 @@
         if (this.type == "date") {
           this.$emit("input", value.join("-"));
         }
-      },      
+      },
       changeHandler(values) {
-        if (values[1] !== this.values[1]) {
+        console.log("changehandler....");
+        console.log(values);
 
-          // this.$refs.wecdatetimepickerpicker.setSlots(2,this.getPickerDates(values[0], values[1]));
-          // console.log(values);
-          // this.initDateData(values[0], values[1]);
-          // console.log(this.dateData[2])
-          // this.dateData[2].options = this.getPickerDates(values[0], values[1]);
+        console.log(values[2]);
+
+        if (values[2] != 1) {
+          console.log('..........change......')
           this.$set(
             this.dateData[2],
             "options",
             this.getPickerDates(values[0], values[1])
           );
-          // console.log(this.dateData[2].options)
+
+          this.$refs.wecdatetimepickerpicker.setValue(2, 1);
+        } else {
+          console.log('false...........')
+          return false;
         }
+
+        // console.log(this.dateData[2].options)
       },
       getPickerDates(syear, smonth) {
         let endDate = 31;
@@ -135,12 +140,6 @@
           // this.initDateData();
         }
       }
-    },
-    watch: {
-      // values: function(value) {
-      //   console.log(value);
-      //   this.initDateData();
-      // }
     },
     mounted() {
       this.initDateData();

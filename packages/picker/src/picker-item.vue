@@ -31,7 +31,7 @@
         labelKey: this.slotObj.labelKey,
         valueKey: this.slotObj.valueKey,
         currentIndex: this.slotObj.defaultIndex || 0,
-        tmpValue:''
+        currentValue: this.value
       };
     },
     methods: {
@@ -50,6 +50,14 @@
         return this.slotObj && this.slotObj.options
           ? this.slotObj.options[index]
           : "";
+      },
+      scrollToTop() {
+        this.currentIndex = 0;
+        this.currentValue = this.getCurrentValue(this.currentIndex);
+        let offsetTopHeight = this.itemHeight * Math.floor(this.itemCount / 2);
+        let scroll = this.$refs.scrollwrapper;
+        scroll.style.transform = `translate(0,${offsetTopHeight}px)`;
+        scroll.style.transition = `transform 0.5s ease-in-out`;
       }
     },
     created() {
@@ -63,20 +71,21 @@
     },
     watch: {
       currentValue(value) {
-        
-        // this.$emit("input", value);
+        console.log('watch....currentvalue....')
+        console.log(value)
+        this.$emit("input", value);
       }
     },
     computed: {
-      currentValue: {
-        get() {
-          return this.value;
-        },
-        set(value) {
-          // console.log(value)
-          this.$emit("input", value);
-        }
-      }
+      // currentValue: {
+      //   get() {
+      //     return this.value;
+      //   },
+      //   set(value) {
+      //     // console.log(value)
+      //     this.$emit("input", value);
+      //   }
+      // }
     },
     mounted() {
       let _this = this;
@@ -133,23 +142,29 @@
 
           scroll.style.transform = `translate(0,${offsetTop}px)`;
 
-          scroll.addEventListener("transitionend", function(event) {
-            let newIndex = (offsetTopHeight - offsetTop) / _this.itemHeight;
+          // scroll.addEventListener("transitionend", function(event) {
+          let newIndex = (offsetTopHeight - offsetTop) / _this.itemHeight;
 
-            // 设置当前索引
-            _this.currentIndex = Math.max(
-              0,
-              Math.min(newIndex, _this.slotObj.options.length - 1)
-            );
-
-            _this.currentValue = _this.getCurrentValue(_this.currentIndex);
-          });
-
-          scroll.removeEventListener("transitionend", function(event) {});
+          drag.newIndex = newIndex;
         });
 
         // 滑动移动结束后事件
-        scroll.addEventListener("touchend", function(event) {});
+        scroll.addEventListener("touchend", function(event) {
+          _this.$nextTick(() => {
+            console.log(drag);
+
+            _this.currentIndex = Math.max(
+              0,
+              Math.min(drag.newIndex, _this.slotObj.options.length - 1)
+            );
+
+            console.log(_this.currentIndex);
+
+            _this.currentValue = _this.getCurrentValue(_this.currentIndex);
+            console.log(_this.currentValue);
+            console.log("currentvalue....up....");
+          });
+        });
       });
     }
   };
