@@ -68,10 +68,11 @@
       },
       setSlots(index, options) {
         this.slots[index].options = options;
+        // this.pickerValues[index] = 1;
       },
       setValue(index, value) {
         // console.log(this.$refs.pickitem)
-        this.$refs.pickitem[index].scrollToTop();
+        // this.$refs.pickitem[index].scrollToTop();
       },
       cancelHandler() {
         this.pickerValues = this.value.concat();
