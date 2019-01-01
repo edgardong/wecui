@@ -4,4 +4,4 @@ new:
 	node build/bin/new.js $(filter-out $@,$(MAKECMDGOALS))
 
 help:
-	@echo "		make new <component-type(css/form/js)> <component-name> Make a new component  ---  demo :make new css button 
+	@echo "\033[36m make new <component-type(css/form/js)> <component-name> Make a new component  ---demo :make new css button \033[0m"
