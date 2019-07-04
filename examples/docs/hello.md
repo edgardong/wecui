@@ -8,14 +8,14 @@ npm install wecui --save
 ```
 ## CDN在线引用
 
-目前可以通过<a target="_blank" href="https://unpkg.com/wecui@1.1.4/"> unpkg.com/wecui </a>获取到最新版本的资源，在页面上引入js和css文件即可开始使用。
+目前可以通过<a target="_blank" href="https://unpkg.com/wecui@1.1.8/"> unpkg.com/wecui </a>获取到最新版本的资源，在页面上引入js和css文件即可开始使用。
 
 
 ``` html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/wecui@1.1.3/lib/wecui-css/index.css">
+<link rel="stylesheet" href="https://unpkg.com/wecui@1.1.8/lib/wecui-css/index.css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/wecui@1.1.3/lib/wecui.js"></script>
+<script src="https://unpkg.com/wecui@1.1.8/lib/wecui.js"></script>
 ```
 
 ## 快速开始

@@ -1,0 +1,1 @@
+@charset "UTF-8";.wec-swipe-item{line-height:200px;position:absolute;-webkit-transform:translateX(-100%);transform:translateX(-100%);width:100%;height:100%;display:none}.wec-swipe-item.is-active{display:block;-webkit-transform:none;transform:none}
