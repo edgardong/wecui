@@ -28,6 +28,8 @@ import { WECToast } from './toast'
 
 export function install(vue: typeof Vue): void
 
+export const MessageBox: WECMessageBox
+
 export class Actionsheet extends WECActionsheet { }
 export class Button extends WECButton { }
 export class Cell extends WECCell { }
@@ -36,7 +38,6 @@ export class DatetimePicker extends WECDatetimePicker { }
 export class Field extends WECField { }
 export class Header extends WECHeader { }
 export class Indicator extends WECIndicator { }
-export class MessageBox extends WECMessageBox { }
 export class Navbar extends WECNavbar { }
 export class Picker extends WECPicker { }
 export class Popup extends WECPopup { }

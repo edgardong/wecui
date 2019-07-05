@@ -1,4 +1,4 @@
 export * from './wecui'
 
-import * as Wecui from './wecui'
-export default Wecui
+import * as WECUI from './wecui'
+export default WECUI
