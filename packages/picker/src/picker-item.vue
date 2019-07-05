@@ -1,9 +1,13 @@
 <template>
   <div class="wec-pickerslot" ref="scrollwrapper">
     <!-- 内容滑块 -->
-    <div class="picker-slot--item" :class="{'picker-selected':(pickerObj && labelKey  &&currentValue? currentValue[labelKey]: currentValue) ==(pickerObj && labelKey? option[labelKey]: option)}" v-if="!slotObj.divider" v-for="(option,optionIndex) in slotObj.options" :key="optionIndex">
-      {{pickerObj && labelKey? option[labelKey]: option}}
-    </div>
+    <div
+      class="picker-slot--item"
+      :class="{'picker-selected':(pickerObj && labelKey  &&currentValue? currentValue[labelKey]: currentValue) ==(pickerObj && labelKey? option[labelKey]: option)}"
+      v-if="!slotObj.divider"
+      v-for="(option,optionIndex) in slotObj.options"
+      :key="optionIndex"
+    >{{pickerObj && labelKey? option[labelKey]: option}}</div>
     <!-- 分隔符模块 -->
     <div class="picker-slot--item" v-if="slotObj.divider">{{slotObj.content}}</div>
   </div>

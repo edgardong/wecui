@@ -1,5 +1,11 @@
 <template>
-  <button class="wec-button" :disabled="disabled" @click="handleClick" :style="{'color':color}" :class="[type?'wec-button--' + type:'', size? 'wec-button--'+ size:'', {'is-disabled':disabled,'is-plain': plain}]">
+  <button
+    class="wec-button"
+    :disabled="disabled"
+    @click="handleClick"
+    :style="{'color':color}"
+    :class="[type?'wec-button--' + type:'', size? 'wec-button--'+ size:'', {'is-disabled':disabled,'is-plain': plain}]"
+  >
     <!-- 用来显示按钮文字 -->
     <span v-if="$slots.default">
       <slot></slot>

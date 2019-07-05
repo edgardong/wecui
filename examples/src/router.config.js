@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 // import Router from 'vue-router'
-import hello from '../docs/hello.md'
+import Index from '../docs/index.md'
 import MobileNav from '../src/components/mobile-nav'
 import isMobile from './is-mobile'
 
@@ -42,7 +42,7 @@ const registerRoute = (navConfig) => {
     // 配置默认路由
     route.push({
       path: '/',
-      component: isMobile ? MobileNav:hello
+      component: isMobile ? MobileNav:Index
     })
   }
 

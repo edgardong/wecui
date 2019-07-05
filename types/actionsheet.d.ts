@@ -1,6 +1,6 @@
 import { WECUIComponent } from './component'
 
-interface ActionItem {
+export interface ActionItem {
   text: string
   action: Function
 }
