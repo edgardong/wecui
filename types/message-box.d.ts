@@ -24,9 +24,9 @@ export interface WECMessage {
 }
 
 export interface WECMessageBox {
-  (message: string): Promise<MessageBoxData>
+  (options: string | WECMessageBoxOptions): Promise<MessageBoxData>
 
-  alert(message: string): MessageComponent
+  alert(options: string | WECMessageBoxOptions): MessageComponent
 }
 
 declare module 'vue/types/vue' {
